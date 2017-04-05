@@ -1,0 +1,43 @@
+{
+  "name": "react-intl-phraseapp",
+  "version": "0.1",
+  "description": "The In-Context-Editor for react using react-intl",
+  "main": "dist/react-intl-phraseapp.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "react-intl",
+    "phraseapp",
+    "i18n",
+    "localization"
+  ],
+  "author": "PhraseApp",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ]
+  },
+  "dependencies": {
+    "@types/react": "^15.0.21",
+    "@types/react-intl": "^2.2.5",
+    "react": "^15.4.2",
+    "react-intl": "^2.2.3"
+  }
+}
