@@ -1,10 +1,11 @@
 {
   "name": "react-intl-phraseapp",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dist": "webpack"
   },
   "keywords": [
     "react",
@@ -16,7 +17,14 @@
   "author": "PhraseApp",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "@types/react-dom": "^0.14.23",
+    "@types/react-test-renderer": "^15.3.0",
     "jest": "^19.0.2",
+    "react-addons-test-utils": "^0.14.0",
+    "react-dom": "^15.4.0",
+    "react-test-renderer": "^15.3.0",
+    "ts-jest": "^19.0.8",
     "ts-loader": "^2.0.3",
     "typescript": "^2.2.2",
     "webpack": "^2.3.3"
@@ -28,16 +36,15 @@
       "js"
     ],
     "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+      "\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
     },
-    "testMatch": [
-      "**/__tests__/*.(ts|tsx|js)"
-    ]
+    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   },
   "dependencies": {
     "@types/react": "^15.0.21",
     "@types/react-intl": "^2.2.5",
-    "react": "^15.4.2",
+    "react": "^15.5.4",
     "react-intl": "^2.2.3"
   }
 }
