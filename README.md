@@ -13,13 +13,13 @@ To use react-intl-phraseapp with your application you have to:
 
 ## Demo
 
+TODO deploy on heroku?
+
 E-Mail: demo@phraseapp.com
 
 Password: phrase
 
-[http://angular-phrase-demo.herokuapp.com/](http://angular-phrase-demo.herokuapp.com/)
-
-(Find the source code for the demo on GitHub: [angular-phrase-demo](https://github.com/phrase/angular-phrase-demo)
+(Find the source code for the demo on GitHub: [react-intl-phraseapp-demo](https://github.com/phrase/react-intl-phraseapp-demo)
 
 ## Installation
 
@@ -27,81 +27,60 @@ Password: phrase
 
     npm install react-intl-phraseapp
 
-(or download it manually from the `dist` folder)
-
 ### Build form source
 
 You can also build it directly from source to get the latest and greatest:
 
-    npm dist
+    npm run dist
 
 ### Development
 
 	npm install
 
-### Add the module
 
-Add angular-phrase module to your existing AngularJS application _after_ loading the `angular-translate` module:
+### Configure 
 
-	var myApp = angular.module("myApp", ['pascalprecht.translate', 'phrase'])
-
-### Configure
-
-Configure the module:
-
-	myApp.value("phraseProjectId", "YOUR-PROJECT-ID");
-	myApp.value("phraseEnabled", true);
-	myApp.value("phraseDecoratorPrefix", "{{__");
-	myApp.value("phraseDecoratorSuffix", "__}}");
+TODO this currently is not working this way...
+```
+let config = {
+  projectId: '<YOUR_PROJECT_ID>',
+  phraseEnabled: true,
+  phraseDecoratorPrefix: "{{__",
+  phraseDecoratorSuffix: ""__}}"
+};
+```
 
 You can find the Project-ID in the Project overview in the PhraseApp Translation Center
 
 ### JavaScript snippet
 
-Add the `phrase-javascript` directive within your application, usually best within the `<head>`:
+Add the following snippet to your react app.
 
-    <phrase-javascript></phrase-javascript>
+```
+import {initializePhraseAppEditor} from 'react-intl-phraseapp'
+
+let config = {
+  projectId: '<YOUR_PROJECT_ID>',
+  phraseEnabled: true
+};
+
+// you can enabled/disabled the In-Context Editor
+let phraseEnabled = true;
+
+initializePhraseAppEditor(config, phraseEnabled);
+```
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](http://docs.phraseapp.com/guides/in-context-editor/custom-integration/).
 
+### Import from react-intl-phrasapp rather than from react-intl
+
+Find all imports of `FormattedMessage`, `FormattedHTMLMessage` and change the source from `react-intl` to `react-intl-phrasapp`.
+
+`import {FormattedMessage} from 'react-intl-phraseapp'`
+
 ## How does it work?
 
-Once the module is enabled it will:
-
-* override the $translate service and provide placeholders that can be picked up by the PhraseApp [In-Context Editor](https://phraseapp.com/features)
-
-* fetch the JavaScript application used to render the In-Context Editor on top of your application
-
-## Using AngularJS with phraseapp-in-context-editor-ruby gem or any other server side technology
-
-If you use the angular-phrase plugin in combination with the phraseapp-in-context-editor-ruby gem or another server side technology that enables the In-Context Editor, AngularJS might have problems if you use curly braces as the decorator suffix/prefix since AngularJS thinks that youre decoratated keys are AngularJS directives (which is not the case).
-
-You can easily solve this issue by using a different decorator syntax for your setup:
-
-#### angular-phrase configuration
-
-    app.value("phraseDecoratorPrefix", "[[__");
-    app.value("phraseDecoratorSuffix", "__]]");
-
-#### phraseapp-in-context-editor-ruby gem configuration
-
-    PhraseApp::InContextEditor.prefix = "[[__"
-    PhraseApp::InContextEditor.suffix = "__]]"
-
-#### JavaScript configuration
-
-    window.PHRASEAPP_CONFIG = {
-      prefix: '[[__',
-      suffix: "__]]"
-    }
-
-*This is only necessary if you're not using the phraseJavascript` directive*
-
-## TODO
-
-* [x] Add support for `translate` filter
-* [x] Add support for `translate` directive
-* [ ] Add support for interpolation values
+The library inherits common components of the react-intl packages. In case you enabled PhraseApp by calling `initializePhraseAppEditor` the behaviour of the components will be changed.
 
 ## Support
 
@@ -111,6 +90,7 @@ You can easily solve this issue by using a different decorator syntax for your s
 
 ## Test
 
-Run unit tests using grunt/Karma:
-
-    grunt karma:unit
+Run unit tests using jest:
+```
+npm test
+```
