@@ -17,6 +17,8 @@
   "author": "PhraseApp",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^15.0.21",
+    "@types/react-intl": "^2.2.5",
     "@types/jest": "^19.2.2",
     "@types/react-dom": "^0.14.23",
     "@types/react-test-renderer": "^15.3.0",
@@ -42,8 +44,6 @@
     "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   },
   "dependencies": {
-    "@types/react": "^15.0.21",
-    "@types/react-intl": "^2.2.5",
     "react": "^15.5.4",
     "react-intl": "^2.2.3"
   }

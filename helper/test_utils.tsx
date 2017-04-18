@@ -12,8 +12,8 @@ export function setPhraseConfig() {
     }
     });
     Object.defineProperty(window, "PHRASEAPP_ENABLED", {
-    writable: true,
-    value: true
+        writable: true,
+        value: true
     });
 }
 
