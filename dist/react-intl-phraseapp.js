@@ -84,12 +84,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var phraseAppEditor = false;
+function sanitizeConfig(config) {
+    config.prefix = config.prefix ? config.prefix : '{{__';
+    config.suffix = config.suffix ? config.suffix : '__}}';
+    return config;
+}
 function initializePhraseAppEditor(config) {
     if (phraseAppEditor)
         return;
     phraseAppEditor = true;
     window.PHRASEAPP_ENABLED = config.phraseEnabled;
-    window.PHRASEAPP_CONFIG = config;
+    window.PHRASEAPP_CONFIG = sanitizeConfig(config);
     if (config.phraseEnabled) {
         var phraseapp = document.createElement('script');
         phraseapp.type = 'text/javascript';
@@ -110,7 +115,8 @@ function isPhraseEnabled() {
 }
 exports.isPhraseEnabled = isPhraseEnabled;
 function escapeId(id) {
-    return '{{__phrase_' + id + '__}}';
+    var config = window.PHRASEAPP_CONFIG;
+    return config.prefix + 'phrase_' + id + config.suffix;
 }
 exports.escapeId = escapeId;
 

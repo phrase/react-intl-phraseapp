@@ -1,12 +1,18 @@
 let phraseAppEditor = false;
 
+function sanitizeConfig(config: any) : any {
+  config.prefix = config.prefix ? config.prefix : '{{__';
+  config.suffix = config.suffix ? config.suffix : '__}}';
+
+  return config;
+}
+
 export function initializePhraseAppEditor (config: any) {
-  if (phraseAppEditor) return
+  if (phraseAppEditor) return;
   
   phraseAppEditor = true;
   (<any>window).PHRASEAPP_ENABLED = config.phraseEnabled;  
-  (<any>window).PHRASEAPP_CONFIG = config;
-  
+  (<any>window).PHRASEAPP_CONFIG = sanitizeConfig(config);
 
   if (config.phraseEnabled) {
       const phraseapp = document.createElement('script');
@@ -27,5 +33,6 @@ export function isPhraseEnabled() : boolean {
 }
 
 export function escapeId (id : string) : string {
-  return '{{__phrase_' + id + '__}}'
+  let config = (<any>window).PHRASEAPP_CONFIG;
+  return  config.prefix + 'phrase_' + id + config.suffix;
 }
