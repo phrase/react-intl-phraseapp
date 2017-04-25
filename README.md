@@ -13,13 +13,7 @@ To use react-intl-phraseapp with your application you have to:
 
 ## Demo
 
-TODO deploy on heroku?
-
-E-Mail: demo@phraseapp.com
-
-Password: phrase
-
-(Find the source code for the demo on GitHub: [react-intl-phraseapp-demo](https://github.com/phrase/react-intl-phraseapp-demo)
+You can find a demo project on [GitHub](https://github.com/phrase/react-intl-phraseapp-demo).
 
 ## Installation
 
@@ -40,13 +34,13 @@ You can also build it directly from source to get the latest and greatest:
 
 ### Configure 
 
-TODO this currently is not working this way...
 ```
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
   phraseDecoratorPrefix: "{{__",
-  phraseDecoratorSuffix: ""__}}"
+  phraseDecoratorSuffix: ""__}}",
+  fullReparse: true
 };
 ```
 
@@ -64,10 +58,7 @@ let config = {
   phraseEnabled: true
 };
 
-// you can enabled/disabled the In-Context Editor
-let phraseEnabled = true;
-
-initializePhraseAppEditor(config, phraseEnabled);
+initializePhraseAppEditor(config);
 ```
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](http://docs.phraseapp.com/guides/in-context-editor/custom-integration/).
