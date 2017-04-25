@@ -7,7 +7,7 @@ export function setPhraseConfig() {
     Object.defineProperty(window, "PHRASEAPP_CONFIG", {
     writable: true,
     value: {
-        prefix: '{{__phrase_',
+        prefix: '{{__',
         suffix: "__}}"
     }
     });
