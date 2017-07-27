@@ -32,14 +32,14 @@ You can also build it directly from source to get the latest and greatest:
 	npm install
 
 
-### Configure 
+### Configure
 
 ```
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
-  phraseDecoratorPrefix: "{{__",
-  phraseDecoratorSuffix: ""__}}",
+  phraseDecoratorPrefix: "[[__",
+  phraseDecoratorSuffix: ""__]]",
   fullReparse: true
 };
 ```
@@ -55,7 +55,10 @@ import {initializePhraseAppEditor} from 'react-intl-phraseapp'
 
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
-  phraseEnabled: true
+  phraseEnabled: true,
+  phraseDecoratorPrefix: "[[__",
+  phraseDecoratorSuffix: ""__]]",
+  fullReparse: true
 };
 
 initializePhraseAppEditor(config);
