@@ -34,12 +34,12 @@ You can also build it directly from source to get the latest and greatest:
 
 ### Configure
 
-```
+```js
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
-  phraseDecoratorPrefix: "[[__",
-  phraseDecoratorSuffix: ""__]]",
+  prefix: "[[__",
+  suffix: "__]]",
   fullReparse: true
 };
 ```
@@ -50,14 +50,14 @@ You can find the Project-ID in the Project overview in the PhraseApp Translation
 
 Add the following snippet to your react app.
 
-```
+```js
 import {initializePhraseAppEditor} from 'react-intl-phraseapp'
 
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
-  phraseDecoratorPrefix: "[[__",
-  phraseDecoratorSuffix: ""__]]",
+  prefix: "[[__",
+  suffix: "__]]",
   fullReparse: true
 };
 
