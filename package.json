@@ -15,7 +15,7 @@
     "localization"
   ],
   "author": "PhraseApp",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/react": "^15.0.21",
     "@types/react-intl": "^2.2.5",
