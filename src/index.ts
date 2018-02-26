@@ -1,3 +1,4 @@
-export {initializePhraseAppEditor} from './functions'
-export {FormattedMessage} from './FormattedMessage'
-export {FormattedHTMLMessage} from './FormattedHTMLMessage'
+export { initializePhraseAppEditor } from './functions'
+export { injectIntlPhrase } from './injectIntl'
+export { FormattedMessage } from './FormattedMessage'
+export { FormattedHTMLMessage } from './FormattedHTMLMessage'

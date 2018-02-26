@@ -16,9 +16,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -153,7 +153,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __webpack_require__(2);
 var react_intl_1 = __webpack_require__(1);
 var functions_1 = __webpack_require__(0);
-var FormattedHTMLMessage = (function (_super) {
+var FormattedHTMLMessage = /** @class */ (function (_super) {
     __extends(FormattedHTMLMessage, _super);
     function FormattedHTMLMessage(props, context) {
         return _super.call(this, props, context) || this;
@@ -192,7 +192,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __webpack_require__(2);
 var react_intl_1 = __webpack_require__(1);
 var functions_1 = __webpack_require__(0);
-var FormattedMessage = (function (_super) {
+var FormattedMessage = /** @class */ (function (_super) {
     __extends(FormattedMessage, _super);
     function FormattedMessage(props, context) {
         return _super.call(this, props, context) || this;
@@ -213,6 +213,56 @@ exports.FormattedMessage = FormattedMessage;
 
 /***/ }),
 /* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["injectIntlPhrase"] = injectIntlPhrase;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intl__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_intl__);
+
+
+
+
+function injectIntlPhrase() {
+    return function (WrappedComponent) {
+        class InjectPhrase extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+            constructor(props, context) {
+                super(props, context);
+                this.render = this.render.bind(this);
+                this.translate = this.translate.bind(this);
+
+                this.state = { errors: {} };
+            }
+
+            translate(keyName) {
+                if (!window.PHRASEAPP_DISABLED) {
+                    let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
+                    return "{{__phrase_" + escapedString + "__}}";
+                } else {
+                    return this.props.intl.formatMessage({ "id": keyName })
+                }
+            }
+
+            render() {
+                return (
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        WrappedComponent, {
+                            ref: "component",
+                            errors: this.state.errors,
+                            translate: this.translate
+                        }, this.props)
+                    );
+            }
+        }
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_intl__["injectIntl"])(InjectPhrase);
+    };
+}
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -220,6 +270,8 @@ exports.FormattedMessage = FormattedMessage;
 Object.defineProperty(exports, "__esModule", { value: true });
 var functions_1 = __webpack_require__(0);
 exports.initializePhraseAppEditor = functions_1.initializePhraseAppEditor;
+var injectIntl_1 = __webpack_require__(5);
+exports.injectIntlPhrase = injectIntl_1.injectIntlPhrase;
 var FormattedMessage_1 = __webpack_require__(4);
 exports.FormattedMessage = FormattedMessage_1.FormattedMessage;
 var FormattedHTMLMessage_1 = __webpack_require__(3);
