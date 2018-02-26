@@ -250,11 +250,10 @@ function injectIntl(WrappedComponent) {
         render() {
             return (
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
-                    WrappedComponent, {
-                        ref: "component",
+                    WrappedComponent, Object.assign({},  {
                         errors: this.state.errors,
-                        translate: this.translate
-                    }, this.props)
+                        translate: this.translate,
+                    }, this.props))
             );
         }
     }

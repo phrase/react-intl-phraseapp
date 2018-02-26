@@ -24,11 +24,10 @@ export function injectIntl(WrappedComponent) {
         render() {
             return (
                 createElement(
-                    WrappedComponent, {
-                        ref: "component",
+                    WrappedComponent, Object.assign({},  {
                         errors: this.state.errors,
-                        translate: this.translate
-                    }, this.props)
+                        translate: this.translate,
+                    }, this.props))
             );
         }
     }
