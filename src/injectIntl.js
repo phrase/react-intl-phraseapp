@@ -1,38 +1,37 @@
-import React from 'react';
-import { injectIntl } from 'react-intl'
+import { Component, createElement } from 'react';
+import { injectIntl as injectIntlReact } from 'react-intl'
+import { escapeId } from './functions'
 
+export function injectIntl(WrappedComponent) {
+    class InjectPhrase extends Component {
+        constructor(props, context) {
+            super(props, context);
+            this.render = this.render.bind(this);
+            this.translate = this.translate.bind(this);
 
-export function injectIntlPhrase() {
-    return function (WrappedComponent) {
-        class InjectPhrase extends React.Component {
-            constructor(props, context) {
-                super(props, context);
-                this.render = this.render.bind(this);
-                this.translate = this.translate.bind(this);
+            this.state = { errors: {} };
+        }
 
-                this.state = { errors: {} };
-            }
-
-            translate(keyName) {
-                if (!window.PHRASEAPP_DISABLED) {
-                    let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
-                    return "{{__phrase_" + escapedString + "__}}";
-                } else {
-                    return this.props.intl.formatMessage({ "id": keyName })
-                }
-            }
-
-            render() {
-                return (
-                    React.createElement(
-                        WrappedComponent, {
-                            ref: "component",
-                            errors: this.state.errors,
-                            translate: this.translate
-                        }, this.props)
-                    );
+        translate(keyName) {
+            if (!window.PHRASEAPP_DISABLED) {
+                let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
+                return escapeId(escapedString);
+            } else {
+                return this.props.intl.formatMessage({ "id": keyName })
             }
         }
-        return injectIntl(InjectPhrase);
-    };
+
+        render() {
+            return (
+                createElement(
+                    WrappedComponent, {
+                        ref: "component",
+                        errors: this.state.errors,
+                        translate: this.translate
+                    }, this.props)
+            );
+        }
+    }
+
+    return injectIntlReact(InjectPhrase);
 }

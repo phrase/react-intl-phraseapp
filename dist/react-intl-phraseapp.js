@@ -217,48 +217,49 @@ exports.FormattedMessage = FormattedMessage;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["injectIntlPhrase"] = injectIntlPhrase;
+/* harmony export (immutable) */ __webpack_exports__["injectIntl"] = injectIntl;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intl__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_intl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__functions__);
 
 
 
 
-function injectIntlPhrase() {
-    return function (WrappedComponent) {
-        class InjectPhrase extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-            constructor(props, context) {
-                super(props, context);
-                this.render = this.render.bind(this);
-                this.translate = this.translate.bind(this);
+function injectIntl(WrappedComponent) {
+    class InjectPhrase extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+        constructor(props, context) {
+            super(props, context);
+            this.render = this.render.bind(this);
+            this.translate = this.translate.bind(this);
 
-                this.state = { errors: {} };
-            }
+            this.state = { errors: {} };
+        }
 
-            translate(keyName) {
-                if (!window.PHRASEAPP_DISABLED) {
-                    let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
-                    return "{{__phrase_" + escapedString + "__}}";
-                } else {
-                    return this.props.intl.formatMessage({ "id": keyName })
-                }
-            }
-
-            render() {
-                return (
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        WrappedComponent, {
-                            ref: "component",
-                            errors: this.state.errors,
-                            translate: this.translate
-                        }, this.props)
-                    );
+        translate(keyName) {
+            if (!window.PHRASEAPP_DISABLED) {
+                let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__functions__["escapeId"])(escapedString);
+            } else {
+                return this.props.intl.formatMessage({ "id": keyName })
             }
         }
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_intl__["injectIntl"])(InjectPhrase);
-    };
+
+        render() {
+            return (
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
+                    WrappedComponent, {
+                        ref: "component",
+                        errors: this.state.errors,
+                        translate: this.translate
+                    }, this.props)
+            );
+        }
+    }
+
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_intl__["injectIntl"])(InjectPhrase);
 }
 
 /***/ }),
@@ -271,7 +272,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var functions_1 = __webpack_require__(0);
 exports.initializePhraseAppEditor = functions_1.initializePhraseAppEditor;
 var injectIntl_1 = __webpack_require__(5);
-exports.injectIntlPhrase = injectIntl_1.injectIntlPhrase;
+exports.injectIntl = injectIntl_1.injectIntl;
 var FormattedMessage_1 = __webpack_require__(4);
 exports.FormattedMessage = FormattedMessage_1.FormattedMessage;
 var FormattedHTMLMessage_1 = __webpack_require__(3);
