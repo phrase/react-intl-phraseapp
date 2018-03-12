@@ -1,8 +1,15 @@
+require("babel-polyfill")
+
 module.exports = {
     resolve: { extensions: ['.js', '.ts', '.tsx'] },
     module: {
         loaders: [
-            { test: /\.tsx?$/, loader: 'ts-loader' },
+            {
+                test: /\.tsx?$/, loaders: [
+                    'babel-loader',
+                    'ts-loader'
+                ]
+            },
         ]
     },
     externals: [
@@ -16,7 +23,10 @@ module.exports = {
             }
         }
     ],
-    entry: './src/index.ts',
+    entry: [
+        'babel-polyfill',
+        './src/index.ts'
+    ],
     output: {
         path: __dirname + '/dist',
         filename: 'react-intl-phraseapp.js',
