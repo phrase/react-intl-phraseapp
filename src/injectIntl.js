@@ -24,7 +24,7 @@ export function injectIntl(WrappedComponent) {
         render() {
             return (
                 createElement(
-                    WrappedComponent, Object.assign({},  {
+                    WrappedComponent, Object.assign({}, {
                         errors: this.state.errors,
                         translate: this.translate,
                     }, this.props))
