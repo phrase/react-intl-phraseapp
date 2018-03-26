@@ -2,7 +2,7 @@ import { Component, createElement } from 'react';
 import { injectIntl as injectIntlReact } from 'react-intl'
 import { escapeId } from './functions'
 
-export function injectIntl(WrappedComponent) {
+export function injectIntl(WrappedComponent, options = {}) {
     class InjectPhrase extends Component {
         constructor(props, context) {
             super(props, context);
@@ -32,5 +32,5 @@ export function injectIntl(WrappedComponent) {
         }
     }
 
-    return injectIntlReact(InjectPhrase);
+    return injectIntlReact(InjectPhrase, options);
 }
