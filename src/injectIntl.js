@@ -1,6 +1,6 @@
 import { Component, createElement } from 'react';
 import { injectIntl as injectIntlReact } from 'react-intl'
-import { escapeId } from './functions'
+import { escapeId, isPhraseEnabled } from './functions'
 
 export function injectIntl(WrappedComponent, options = {}) {
     class InjectPhrase extends Component {
@@ -13,7 +13,7 @@ export function injectIntl(WrappedComponent, options = {}) {
         }
 
         translate(keyName) {
-            if (!window.PHRASEAPP_DISABLED) {
+            if (isPhraseEnabled()) {
                 let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
             } else {
