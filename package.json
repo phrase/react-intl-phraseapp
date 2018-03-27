@@ -8,7 +8,7 @@
     "test": "jest",
     "dev": "webpack-cli --mode development",
     "dist": "webpack-cli --mode production",
-    "prepublishOnly": "rimraf dist/ && npm run build"
+    "prepublish": "rimraf dist/ && npm run dist"
   },
   "keywords": [
     "react",

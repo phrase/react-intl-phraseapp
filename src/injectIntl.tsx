@@ -1,9 +1,9 @@
-import { Component, createElement } from 'react';
+import * as React from 'react';
 import { injectIntl as injectIntlReact } from 'react-intl'
 import { escapeId, isPhraseEnabled } from './functions'
 
 export function injectIntl(WrappedComponent, options = {}) {
-    class InjectPhrase extends Component {
+    class InjectPhrase extends React.Component {
         constructor(props, context) {
             super(props, context);
             this.render = this.render.bind(this);
