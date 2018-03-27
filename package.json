@@ -3,10 +3,12 @@
   "version": "0.2.3",
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
+  "homepage": "https://phraseapp.com",
   "scripts": {
     "test": "jest",
     "dev": "webpack-cli --mode development",
-    "dist": "webpack-cli --mode development"
+    "build": "webpack-cli --mode production",
+    "prepublishOnly": "rimraf dist/ && npm run build"
   },
   "keywords": [
     "react",
@@ -18,7 +20,7 @@
   "author": "PhraseApp",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^19.2.2",
+    "@types/jest": "^22.2.2",
     "@types/node": "^9.4.6",
     "@types/react": "^15.0.21",
     "@types/react-dom": "^0.14.23",
@@ -28,27 +30,27 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
-    "jest": "^19.0.2",
+    "jest": "^22.4.3",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^15.4.0",
     "react-test-renderer": "^15.3.0",
-    "ts-jest": "^19.0.8",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.2.4",
     "ts-loader": "^4.1.0",
-    "typescript": "^2.2.2",
+    "typescript": "^2.7.2",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13"
   },
   "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
-    ],
-    "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
-    },
-    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
-    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+    ]
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
