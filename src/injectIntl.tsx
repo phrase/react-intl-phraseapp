@@ -17,17 +17,17 @@ export function injectIntl(WrappedComponent, options = {}) {
                 let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
             } else {
-                return this.props.intl.formatMessage({ "id": keyName })
+                return this.props['intl'].formatMessage({ "id": keyName })
             }
         }
 
         render() {
             return (
-                createElement(
-                    WrappedComponent, Object.assign({}, {
-                        errors: this.state.errors,
-                        translate: this.translate,
-                    }, this.props))
+                <WrappedComponent
+                    errors={this.state['errors']}
+                    translate={this.translate}
+                    {...this.props}
+                />
             );
         }
     }

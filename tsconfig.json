@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
     "sourceMap": true,
@@ -8,8 +8,7 @@
     "jsx": "react",
     "module": "commonjs",
     "declaration": false,
-    "moduleResolution": "node",
-    "allowJs": true
+    "moduleResolution": "node"
   },
   "exclude": [
     "node_modules",
