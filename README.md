@@ -39,6 +39,7 @@ let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
   prefix: "[[__",
+  removePhrasePrefix: false,
   suffix: "__]]",
   fullReparse: true
 };
@@ -57,6 +58,7 @@ let config = {
   projectId: '<YOUR_PROJECT_ID>',
   phraseEnabled: true,
   prefix: "[[__",
+  removePhrasePrefix: false,
   suffix: "__]]",
   fullReparse: true
 };
