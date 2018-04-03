@@ -1,6 +1,6 @@
 {
   "name": "react-intl-phraseapp",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
   "homepage": "https://phraseapp.com",
