@@ -1,9 +1,9 @@
-import { Component, createElement } from 'react';
+import * as React from 'react';
 import { injectIntl as injectIntlReact } from 'react-intl'
 import { escapeId, isPhraseEnabled } from './functions'
 
 export function injectIntl(WrappedComponent, options = {}) {
-    class InjectPhrase extends Component {
+    class InjectPhrase extends React.Component {
         constructor(props, context) {
             super(props, context);
             this.render = this.render.bind(this);
@@ -17,17 +17,17 @@ export function injectIntl(WrappedComponent, options = {}) {
                 let escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
             } else {
-                return this.props.intl.formatMessage({ "id": keyName })
+                return this.props['intl'].formatMessage({ "id": keyName })
             }
         }
 
         render() {
             return (
-                createElement(
-                    WrappedComponent, Object.assign({}, {
-                        errors: this.state.errors,
-                        translate: this.translate,
-                    }, this.props))
+                <WrappedComponent
+                    errors={this.state['errors']}
+                    translate={this.translate}
+                    {...this.props}
+                />
             );
         }
     }

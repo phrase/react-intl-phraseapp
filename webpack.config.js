@@ -1,30 +1,29 @@
-require("babel-polyfill")
-
 module.exports = {
     resolve: { extensions: ['.js', '.ts', '.tsx'] },
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.tsx?$/, loaders: [
-                    'babel-loader',
-                    'ts-loader'
+                test: /\.tsx?$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            plugins: [
+                                'transform-runtime'
+                            ],
+                            presets: ['es2015'],
+                        }
+                    },
+                    "ts-loader"
                 ]
             },
         ]
     },
     externals: [
         "react-intl",
-        {
-            "react": {
-                root: "React",
-                commonjs: "react",
-                commonjs2: "react",
-                amd: "react"
-            }
-        }
+        "react"
     ],
     entry: [
-        'babel-polyfill',
         './src/index.ts'
     ],
     output: {
