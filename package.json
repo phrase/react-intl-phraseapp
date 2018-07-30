@@ -1,6 +1,6 @@
 {
   "name": "react-intl-phraseapp",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
   "homepage": "https://phraseapp.com",
@@ -41,7 +41,7 @@
     "ts-jest": "^22.2.4",
     "ts-loader": "^4.1.0",
     "typescript": "^2.7.2",
-    "webpack": "^4.2.0",
+    "webpack": "^4.16.1",
     "webpack-cli": "^2.0.13"
   },
   "peerDependencies": {
