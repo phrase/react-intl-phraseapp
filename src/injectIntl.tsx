@@ -24,7 +24,11 @@ export function injectIntl(WrappedComponent, options = {}) {
 
         formatMessage(messageDescriptor) {
             const { id } = messageDescriptor;
-            return this.translate(id);
+            if (!id) {
+                console.error("formatMessage requires an id")
+            } else {
+                return this.translate(id);
+            }
         }
 
         render() {
