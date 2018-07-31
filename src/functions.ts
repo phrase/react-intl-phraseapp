@@ -34,5 +34,9 @@ export function isPhraseEnabled() : boolean {
 
 export function escapeId (id : string) : string {
   let config = (<any>window).PHRASEAPP_CONFIG;
-  return  config.prefix + 'phrase_' + id + config.suffix;
+  if (config.removePhrasePrefix) {
+    return  config.prefix + id + config.suffix;
+  } else {
+    return  config.prefix + 'phrase_' + id + config.suffix;
+  }
 }
