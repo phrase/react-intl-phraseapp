@@ -47,6 +47,9 @@
     "react": ">= 15.5.4",
     "react-intl": ">= 2.2.3"
   },
+  "files": [
+    "dist/react-intl-phraseapp.js"
+  ],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
