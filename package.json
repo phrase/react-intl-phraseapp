@@ -1,8 +1,9 @@
 {
   "name": "react-intl-phraseapp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
+  "typings": "./dist/index.d.ts",
   "homepage": "https://phraseapp.com",
   "scripts": {
     "test": "jest",
@@ -48,7 +49,7 @@
     "react-intl": ">= 2.2.3"
   },
   "files": [
-    "dist/react-intl-phraseapp.js"
+    "dist/"
   ],
   "jest": {
     "transform": {
