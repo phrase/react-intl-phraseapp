@@ -7,11 +7,11 @@
     "target": "es6",
     "jsx": "react",
     "module": "commonjs",
-    "declaration": false,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./"
   },
-  "exclude": [
-    "node_modules",
-    "build"
+  "include": [
+    "src"
   ]
 }
