@@ -64,7 +64,7 @@ let config = {
 initializePhraseAppEditor(config);
 ```
 
-If this does not work for you, you can also integrate the [JavaScript snippet manually](http://docs.phraseapp.com/guides/in-context-editor/custom-integration/).
+If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phraseapp.com/phraseapp-for-developers/how-to-setup-and-configure-the-phraseapp-in-context-editor-ice/integrate-in-context-editor-into-any-web-framework).
 
 ### Import from react-intl-phrasapp rather than from react-intl
 
