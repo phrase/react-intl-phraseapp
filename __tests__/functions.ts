@@ -9,5 +9,5 @@ test('translation should be rendered by default', () => {
     functions.initializePhraseAppEditor(config)
 
     expect(document.getElementsByTagName('script')[0].src)
-        .toMatch(/https:\/\/phraseapp.com\/assets\/in-context-editor\/2.0\/app.js\?[\d]/);
+        .toMatch(/https:\/\/app.phrase.com\/assets\/in-context-editor\/2.0\/app.js\?[\d]/);
 });
