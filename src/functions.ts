@@ -18,7 +18,7 @@ export function initializePhraseAppEditor (config: any) {
       const phraseapp = document.createElement('script');
       phraseapp.type = 'text/javascript';
       phraseapp.async = true;
-      phraseapp.src = ['https://', 'phraseapp.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
+      phraseapp.src = ['https://', 'app.phrase.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
       var s = document.getElementsByTagName('script')[0];
       if (s != undefined) {
         s.parentNode.insertBefore(phraseapp, s);
