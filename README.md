@@ -21,7 +21,7 @@ You can find a demo project on [GitHub](https://github.com/phrase/react-intl-phr
 
     npm install react-intl-phraseapp
 
-### Build form source
+### Build from source
 
 You can also build it directly from source to get the latest and greatest:
 
