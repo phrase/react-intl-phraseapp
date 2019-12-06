@@ -41,7 +41,7 @@
     "ts-jest": "^22.2.4",
     "ts-loader": "^4.1.0",
     "typescript": "^2.7.2",
-    "webpack": "^4.16.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^2.0.13",
     "merge": ">=1.2.1",
     "lodash": ">=4.17.11"
