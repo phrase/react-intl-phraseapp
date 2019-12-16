@@ -8,8 +8,7 @@
     "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
-    "declaration": true,
-    "declarationDir": "./"
+    "declaration": true
   },
   "include": [
     "src"
