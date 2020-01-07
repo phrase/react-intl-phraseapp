@@ -10,13 +10,13 @@ export class FormattedMessage extends IntlFormattedMessage {
         super(props, context);
     }
 
-    render() {  
+    render() {
         if (isPhraseEnabled()) {
             let nodes = [escapeId(this.props.id)];
             return createElement("span", null, ...nodes);
-            
+
         } else {
             return super.render();
-        }    
+        }
     }
 }
