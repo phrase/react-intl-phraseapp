@@ -72,6 +72,10 @@ Find all imports of `FormattedMessage`, `FormattedHTMLMessage` and change the so
 
 `import {FormattedMessage} from 'react-intl-phraseapp'`
 
+## Browser support
+
+This library might not work out of the box for some older browser or IE11. We recommend to add [Babel](https://github.com/babel/babel) to the build pipeline if those browser need to be supported.
+
 ## How does it work?
 
 The library inherits common components of the react-intl packages. In case you enabled PhraseApp by calling `initializePhraseAppEditor` the behaviour of the components will be changed.

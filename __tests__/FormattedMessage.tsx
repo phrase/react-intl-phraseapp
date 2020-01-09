@@ -12,7 +12,7 @@ test('translation should be rendered by default', () => {
 });
 
 test('key should be decorated with prefix/suffix', () => {
-    Utils.setPhraseConfig()    
+    Utils.setPhraseConfig()
     const component = Utils.createComponentWithIntl(<FormattedMessage id='key.id' defaultMessage="foo bar"/>);
 
     let tree = component.toJSON();

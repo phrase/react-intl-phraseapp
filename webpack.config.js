@@ -5,15 +5,6 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            plugins: [
-                                'transform-runtime'
-                            ],
-                            presets: ['es2015'],
-                        }
-                    },
                     "ts-loader"
                 ]
             },
