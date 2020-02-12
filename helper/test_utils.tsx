@@ -19,7 +19,7 @@ export function setPhraseConfig() {
 
 export const createComponentWithIntl = (children : any, props = { locale: 'en' }) => {
     return renderer.create(
-        <IntlProvider {...props}>
+        <IntlProvider textComponent="span" {...props}>
             {children}
         </IntlProvider>
     );
