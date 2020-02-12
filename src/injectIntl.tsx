@@ -4,15 +4,12 @@ import { escapeId, isPhraseEnabled } from './functions';
 
 export type ReactIntlPhraseProps = {
     translate: (_: string)=> string;
-    formatMessage: (_: {id?: string}) => undefined | string;
-    errors: {}
+    formatMessage: (_: {id?: string}) => string;
 };
 
 export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhraseProps>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> & React.FC<ReactIntlPhraseProps> {
-    class InjectPhrase extends React.Component {
-        state = { errors: {} };
-
-        translate(keyName: string) {
+    class InjectPhrase extends React.Component implements ReactIntlPhraseProps {
+        translate(keyName: string): ReturnType<ReactIntlPhraseProps['translate']> {
             if (isPhraseEnabled()) {
                 const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
@@ -21,7 +18,7 @@ export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhrase
             }
         }
 
-        formatMessage(messageDescriptor: {id?: string}) {
+        formatMessage(messageDescriptor: {id?: string}): ReturnType<ReactIntlPhraseProps['formatMessage']> {
             const { id } = messageDescriptor;
             if (!id) {
                 console.error("formatMessage requires an id")
@@ -33,7 +30,6 @@ export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhrase
         render() {
             return (
                 <WrappedComponent
-                    errors={this.state['errors']}
                     translate={this.translate}
                     formatMessage={this.formatMessage}
                     {...this.props}
