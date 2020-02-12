@@ -1,4 +1,4 @@
 export { initializePhraseAppEditor } from './functions'
-export { injectIntl } from './injectIntl'
+export { injectIntl, ReactIntlPhraseProps } from './injectIntl'
 export { FormattedMessage } from './FormattedMessage'
 export { FormattedHTMLMessage } from './FormattedHTMLMessage'

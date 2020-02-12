@@ -6,10 +6,6 @@ import {
 import {escapeId, isPhraseEnabled} from './functions'
 
 export class FormattedHTMLMessage extends IntlFormattedHTMLMessage {
-    constructor(props: any, context: any) {
-        super(props, context);
-    }
-
     render() {  
         if (isPhraseEnabled()) {
             let nodes = [escapeId(this.props.id)];

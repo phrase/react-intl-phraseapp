@@ -20,10 +20,10 @@ export function initializePhraseAppEditor (config: any) {
       phraseapp.async = true;
       phraseapp.src = ['https://', 'app.phrase.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
       var s = document.getElementsByTagName('script')[0];
-      if (s != undefined) {
+      if (s !== undefined) {
         s.parentNode.insertBefore(phraseapp, s);
       } else {
-        document.insertBefore(phraseapp, null);
+        document.body.appendChild(phraseapp);
       }
     }
 }
@@ -32,7 +32,7 @@ export function isPhraseEnabled() : boolean {
   return (<any>window).PHRASEAPP_ENABLED
 }
 
-export function escapeId (id : string) : string {
+export function escapeId (id : string | number) : string {
   let config = (<any>window).PHRASEAPP_CONFIG;
   return  config.prefix + 'phrase_' + id + config.suffix;
 }

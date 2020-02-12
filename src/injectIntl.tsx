@@ -2,18 +2,17 @@ import * as React from 'react';
 import { injectIntl as injectIntlReact } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
 
-export function injectIntl(WrappedComponent, options = {}) {
+export type ReactIntlPhraseProps = {
+    translate: (_: string)=> string;
+    formatMessage: (_: {id?: string}) => undefined | string;
+    errors: {}
+};
+
+export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhraseProps>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> & React.FC<ReactIntlPhraseProps> {
     class InjectPhrase extends React.Component {
-        constructor(props, context) {
-            super(props, context);
-            this.render = this.render.bind(this);
-            this.translate = this.translate.bind(this);
-            this.formatMessage = this.formatMessage.bind(this);
+        state = { errors: {} };
 
-            this.state = { errors: {} };
-        }
-
-        translate(keyName) {
+        translate(keyName: string) {
             if (isPhraseEnabled()) {
                 const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
@@ -22,7 +21,7 @@ export function injectIntl(WrappedComponent, options = {}) {
             }
         }
 
-        formatMessage(messageDescriptor) {
+        formatMessage(messageDescriptor: {id?: string}) {
             const { id } = messageDescriptor;
             if (!id) {
                 console.error("formatMessage requires an id")

@@ -6,15 +6,9 @@ import {
 import {escapeId, isPhraseEnabled} from './functions'
 
 export class FormattedMessage extends IntlFormattedMessage {
-    constructor(props: any, context: any) {
-        super(props, context);
-    }
-
     render() {
         if (isPhraseEnabled()) {
-            let nodes = [escapeId(this.props.id)];
-            return createElement("span", null, ...nodes);
-
+            return createElement("span", null, escapeId(this.props.id));
         } else {
             return super.render();
         }
