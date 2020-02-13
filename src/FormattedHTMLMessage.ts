@@ -8,8 +8,7 @@ import {escapeId, isPhraseEnabled} from './functions'
 export class FormattedHTMLMessage extends IntlFormattedHTMLMessage {
     render() {  
         if (isPhraseEnabled()) {
-            let nodes = [escapeId(this.props.id)];
-            return createElement("span", null, ...nodes);
+            return createElement("span", null, escapeId(this.props.id));
         } else {
             return super.render();
         }    
