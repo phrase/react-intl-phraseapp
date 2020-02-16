@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as Utils from '../helper/test_utils'
+import * as React from 'react';
+import * as Utils from '../helper/test_utils';
 
 import {FormattedHTMLMessage} from '../src/FormattedHTMLMessage';
 

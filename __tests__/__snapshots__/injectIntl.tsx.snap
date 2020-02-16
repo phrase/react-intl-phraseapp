@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`injectIntl formatMessage when phrase is enabled key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  {{__phrase_key.id__}}
+</div>
+`;
+
+exports[`injectIntl formatMessage when phrase is not enabled key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  Some translation
+</div>
+`;
+
+exports[`injectIntl translate when phrase is enabled key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  {{__phrase_key.id__}}
+</div>
+`;
+
+exports[`injectIntl translate when phrase is not enabled key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  Some translation
+</div>
+`;
