@@ -9,16 +9,24 @@ export type ReactIntlPhraseProps = {
 
 export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhraseProps>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> & React.FC<ReactIntlPhraseProps> {
     class InjectPhrase extends React.Component implements ReactIntlPhraseProps {
+        constructor(...args: ConstructorParameters<typeof React.Component>) {
+            super(...args);
+
+            this.render = this.render.bind(this);
+            this.translate = this.translate.bind(this);
+            this.formatMessage = this.formatMessage.bind(this);
+        }
+
         translate(keyName: string): ReturnType<ReactIntlPhraseProps['translate']> {
             if (isPhraseEnabled()) {
                 const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
                 return escapeId(escapedString);
             } else {
-                return this.props['intl'].formatMessage({ "id": keyName })
+                return this.props['intl'].formatMessage({ "id": keyName });
             }
         }
 
-        formatMessage(messageDescriptor: {id?: string}): ReturnType<ReactIntlPhraseProps['formatMessage']> {
+        formatMessage(messageDescriptor: { id?: string }): ReturnType<ReactIntlPhraseProps['formatMessage']> {
             const { id } = messageDescriptor;
             if (!id) {
                 console.error("formatMessage requires an id")
