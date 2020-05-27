@@ -46,5 +46,5 @@ export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhrase
         }
     }
 
-    return injectIntlReact(InjectPhrase, options);
+    return injectIntlReact(InjectPhrase, options) as any;
 }
