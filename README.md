@@ -71,7 +71,7 @@ initializePhraseAppEditor(config);
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/en/articles/2183908-integrate-in-context-editor-into-any-web-framework).
 
-### Import from react-intl-phrasapp rather than from react-intl
+### Import from react-intl-phraseapp rather than from react-intl
 
 Find all imports of `FormattedMessage`, `FormattedHTMLMessage` and change the source from `react-intl` to `react-intl-phrasapp`.
 
