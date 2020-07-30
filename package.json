@@ -4,7 +4,7 @@
   "description": "The In-Context-Editor for react using react-intl",
   "main": "dist/react-intl-phraseapp.js",
   "typings": "./dist/index.d.ts",
-  "homepage": "https://phraseapp.com",
+  "homepage": "https://phrase.com",
   "scripts": {
     "test": "jest",
     "dev": "webpack-cli --mode development",
@@ -16,9 +16,10 @@
     "react-intl",
     "phraseapp",
     "i18n",
-    "localization"
+    "localization",
+    "phrase"
   ],
-  "author": "PhraseApp",
+  "author": "Phrase",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^25.1.2",

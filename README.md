@@ -69,7 +69,7 @@ let config = {
 initializePhraseAppEditor(config);
 ```
 
-If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/en/articles/2183908-integrate-in-context-editor-into-any-web-framework).
+If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/help/integrate-in-context-editor-into-any-web-framework).
 
 ### Import from react-intl-phraseapp rather than from react-intl
 
