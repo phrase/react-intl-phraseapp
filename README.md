@@ -1,6 +1,6 @@
 # react-intl-phraseapp
 
-[![Build Status](https://travis-ci.org/phrase/react-intl-phraseapp.png)](https://travis-ci.org/phrase/react-intl-phraseapp)
+![Build status](https://github.com/phrase/react-intl-phraseapp/workflows/Test/badge.svg)
 
 react-intl-phraseapp is an addon for [react-intl](https://github.com/yahoo/react-intl) that lets you connect localized react applications to the Phrase In-Context Editor.
 
@@ -69,7 +69,7 @@ let config = {
 initializePhraseAppEditor(config);
 ```
 
-If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/en/articles/2183908-integrate-in-context-editor-into-any-web-framework).
+If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/help/integrate-in-context-editor-into-any-web-framework).
 
 ### Import from react-intl-phraseapp rather than from react-intl
 
