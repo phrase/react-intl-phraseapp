@@ -73,7 +73,7 @@ If this does not work for you, you can also integrate the [JavaScript snippet ma
 
 ### Import from react-intl-phraseapp rather than from react-intl
 
-Find all imports of `FormattedMessage`, and change the source from `react-intl` to `react-intl-phrasapp`.
+Find all imports of `FormattedMessage`, and change the source from `react-intl` to `react-intl-phraseapp`.
 
 `import {FormattedMessage} from 'react-intl-phraseapp'`
 
