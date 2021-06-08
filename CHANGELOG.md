@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/phrase/react-intl-phraseapp/compare/v3.0.0...v3.0.1) (2021-06-08)
+
+### Fixes
+
+* properly map `react` and `react-intl` dependencies in UMD build. ([#60](https://github.com/phrase/react-intl-phraseapp/pull/60))
+
 ## [3.0.0](https://github.com/phrase/react-intl-phraseapp/compare/v2.0.1...v3.0.0) (2020-06-24)
 
 ### ⚠ BREAKING CHANGES
