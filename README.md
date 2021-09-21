@@ -85,12 +85,6 @@ This library might not work out of the box for some older browser or IE11. We re
 
 The library inherits common components of the react-intl packages. In case you enabled Phrase by calling `initializePhraseAppEditor` the behaviour of the components will be changed.
 
-## Support
-
-**Question?** Contact us at: [phrase.com/contact](https://phrase.com/contact)
-
-**Issue?** use GitHub issues and share the problem
-
 ## Test
 
 Run unit tests using jest:
@@ -98,3 +92,7 @@ Run unit tests using jest:
 ```bash
 npm test
 ```
+
+## Get help / support
+
+Please contact [support@phrase.com](mailto:support@phrase.com?subject=[GitHub]%20) and we can take more direct action toward finding a solution.
