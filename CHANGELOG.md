@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.2](https://github.com/phrase/react-intl-phraseapp/compare/v3.0.1...v3.0.2) (2022-06-21)
+
+### Feat
+
+* support react-intl >= 5.0.0. ([#69](https://github.com/phrase/react-intl-phraseapp/pull/69))
+
 ## [3.0.1](https://github.com/phrase/react-intl-phraseapp/compare/v3.0.0...v3.0.1) (2021-06-08)
 
 ### Fixes
