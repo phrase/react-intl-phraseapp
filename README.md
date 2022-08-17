@@ -71,6 +71,16 @@ initializePhraseAppEditor(config);
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/help/integrate-in-context-editor-into-any-web-framework).
 
+### Using the US Datacenter with ICE
+
+In addition to `phraseEnabled` and `projectId` in the config, also add the US specific URLs to enable working through the US endpoint.
+```
+  baseUrl: "https://us.app.phrase.com",
+  apiBaseUrl: 'https://api.us.app.phrase.com/api/v2',
+  oauthEndpointUrl: "https://api.us.app.phrase.com/api/v2/authorizations",
+  profileUrl: "https://us.app.phrase.com/settings/profile",
+```
+
 ### Import from react-intl-phraseapp rather than from react-intl
 
 Find all imports of `FormattedMessage`, and change the source from `react-intl` to `react-intl-phraseapp`.
