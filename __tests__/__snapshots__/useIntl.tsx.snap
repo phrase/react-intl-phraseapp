@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useIntl useIntl used underlying useIntl 1`] = `
+<div>
+  Hello, Eric!
+</div>
+`;
+
+exports[`useIntl with phrase enabled uses wrapped useIntl 1`] = `
+<div>
+  {{__phrase_app.greeting__}}
+</div>
+`;
