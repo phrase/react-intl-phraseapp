@@ -2,15 +2,15 @@ name: Test
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12.8
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Use Node.js 16
+      uses: actions/setup-node@v3
       with:
-        node-version: 12.8
+        node-version: 16
     - name: Install dependencies
-      run: npm install
+      run: yarn install
     - name: Test
       run: |
-        npm test -- --configuration=ci
+        yarn test

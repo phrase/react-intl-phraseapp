@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as Utils from '../helper/test_utils';
-
-import { injectIntl } from '../src';
+import { injectIntl, ReactIntlPhraseProps } from '../src';
 
 const key = 'key.id';
 const locale = 'en';
@@ -14,7 +13,7 @@ describe('injectIntl', () => {
     let ComponentUnderTest;
 
     beforeEach(() => {
-      function Component({ translate }) {
+      function Component({ translate }: ReactIntlPhraseProps) {
         const translation = translate(key);
 
         return (<div>{translation}</div>);
@@ -53,8 +52,8 @@ describe('injectIntl', () => {
     let ComponentUnderTest;
 
     beforeEach(() => {
-      function Component({ formatMessage }) {
-        const message = formatMessage({ id: key });
+      function Component({ formatMessage }: ReactIntlPhraseProps) {
+        const message = formatMessage({ id: key }, {name: 'Eric'});
 
         return (<div>{message}</div>);
       }
