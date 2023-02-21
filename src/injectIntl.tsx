@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { injectIntl as injectIntlReact } from 'react-intl';
+import { injectIntl as injectIntlReact, IntlFormatters } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
 
 export type ReactIntlPhraseProps = {
     translate: (_: string)=> string;
-    formatMessage: (_: {id?: string}) => string;
+    formatMessage: IntlFormatters['formatMessage'],
 };
 
 export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhraseProps>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> & React.FC<ReactIntlPhraseProps> {
