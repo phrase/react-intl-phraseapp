@@ -71,6 +71,17 @@ initializePhraseAppEditor(config);
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/help/integrate-in-context-editor-into-any-web-framework).
 
+To use the old version of ICE, use option `useOldICE: true` in your PHRASEAPP_CONFIG or integration options
+```
+let config = {
+  projectId: '<YOUR_PROJECT_ID>',
+  phraseEnabled: true,
+  useOldICE: true,
+};
+
+initializePhraseAppEditor(config);
+```
+
 ### Using the US Datacenter with ICE
 
 In addition to `phraseEnabled` and `projectId` in the config, also add the US specific URLs to enable working through the US endpoint.
