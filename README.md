@@ -2,7 +2,7 @@
 
 ![Build status](https://github.com/phrase/react-intl-phraseapp/workflows/Test/badge.svg)
 
-react-intl-phraseapp is an addon for [react-intl](https://github.com/yahoo/react-intl) that lets you connect localized react applications to the Phrase In-Context Editor.
+react-intl-phraseapp is an addon for [react-intl](https://github.com/yahoo/react-intl) that lets you connect localized react applications to the Phrase Strings In-Context Editor.
 
 ## Prerequisites
 
