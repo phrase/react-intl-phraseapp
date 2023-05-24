@@ -8,7 +8,7 @@ function sanitizeConfig(config: any) : any {
 }
 
 export function initializePhraseAppEditor (config: any) {
-  if (phraseAppEditor) return;
+  if (phraseAppEditor && !config.forceInitialize) return;
   
   phraseAppEditor = true;
   (<any>window).PHRASEAPP_ENABLED = config.phraseEnabled;  
@@ -16,9 +16,15 @@ export function initializePhraseAppEditor (config: any) {
 
   if (config.phraseEnabled) {
       const phraseapp = document.createElement('script');
-      phraseapp.type = 'text/javascript';
+      if (config.useOldICE) {
+        phraseapp.type = 'text/javascript';
+        phraseapp.src = ['https://', 'app.phrase.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
+      } else {
+        phraseapp.type = 'module';
+        phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js'
+      }
+
       phraseapp.async = true;
-      phraseapp.src = ['https://', 'app.phrase.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
       var s = document.getElementsByTagName('script')[0];
       if (s !== undefined) {
         s.parentNode.insertBefore(phraseapp, s);
