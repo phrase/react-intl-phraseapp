@@ -105,9 +105,15 @@ Run unit tests using jest:
 npm test
 ```
 
-## :exclamation: Issues, Questions, Support
+## :white_check_mark: Commits & Pull Requests
 
-Please use [GitHub issues](https://github.com/phrase/react-intl-phraseapp/issues) to share the problem, and we will do our best to answer any questions or to support you in finding a solution.
+We welcome anyone who wants to contribute to our codebase, so if you notice something, feel free to open a Pull Request! However, we ask that you please use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for your commit messages and titles when opening a Pull Request.
+
+Example: `chore: Update README`
+
+## :question: Issues, Questions, Support
+
+Please use [GitHub issues](https://github.com/phrase/react-intl-phraseapp/issues) to share your problem, and we will do our best to answer any questions or to support you in finding a solution.
 
 ## :memo: Changelog
 
