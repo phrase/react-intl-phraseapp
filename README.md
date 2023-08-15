@@ -15,7 +15,7 @@ To use react-intl-phraseapp with your application you have to:
 
 ### Demo
 
-You can find a demo project on [GitHub](https://github.com/phrase/react-intl-phraseapp-demo).
+You can find a demo project in the `examples/demo` folder, just run `yarn && yarn start`
 
 ### Installation
 
@@ -25,19 +25,25 @@ You can find a demo project on [GitHub](https://github.com/phrase/react-intl-phr
 npm install react-intl-phraseapp
 ```
 
+#### via Yarn
+
+```bash
+yarn add react-intl-phraseapp
+```
+
 #### Build from source
 
 You can also build it directly from source to get the latest and greatest:
 
 ```bash
-npm run dist
+yarn run dist
 ```
 
 ### Development
 
 ```bash
 # install deps
-npm install
+yarn install
 ```
 
 #### Configure
@@ -49,6 +55,7 @@ import {initializePhraseAppEditor} from 'react-intl-phraseapp'
 
 let config = {
   projectId: '<YOUR_PROJECT_ID>',
+  accountId: '<YOUR_ACCOUNT_ID>',
   phraseEnabled: true,
   prefix: "[[__",
   suffix: "__]]",
@@ -59,6 +66,7 @@ initializePhraseAppEditor(config);
 ```
 
 You can find the Project-ID in the Project overview in the PhraseApp Translation Center.
+You can find the Account-ID in the Organization page in the PhraseApp Translation Center.
 
 If this does not work for you, you can also integrate the [JavaScript snippet manually](https://help.phrase.com/help/integrate-in-context-editor-into-any-web-framework).
 
