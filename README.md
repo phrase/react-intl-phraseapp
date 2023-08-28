@@ -83,12 +83,10 @@ initializePhraseAppEditor(config);
 
 #### Using the US Datacenter with ICE
 
-In addition to `phraseEnabled` and `projectId` in the config, also add the US specific URLs to enable working through the US endpoint.
+In addition to `phraseEnabled` and `projectId` in the config, also set the US datacenter to enable working through the US endpoints.
 ```js
-  baseUrl: "https://us.app.phrase.com",
-  apiBaseUrl: 'https://api.us.app.phrase.com/api/v2',
-  oauthEndpointUrl: "https://api.us.app.phrase.com/api/v2/authorizations",
-  profileUrl: "https://us.app.phrase.com/settings/profile",
+
+  datacenter: 'us',
 ```
 
 #### Import from react-intl-phraseapp rather than from react-intl
