@@ -36,7 +36,7 @@ yarn add react-intl-phraseapp
 You can also build it directly from source to get the latest and greatest:
 
 ```bash
-yarn run dist
+yarn dist
 ```
 
 ### Development
@@ -85,7 +85,6 @@ initializePhraseAppEditor(config);
 
 In addition to the settings in your config, set the US datacenter to enable it working with the US endpoints.
 ```js
-
   datacenter: 'us',
 ```
 

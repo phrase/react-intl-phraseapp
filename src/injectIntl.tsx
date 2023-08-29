@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { injectIntl as injectIntlReact, IntlFormatters } from 'react-intl';
+import { injectIntl as injectIntlReact, IntlFormatters, MessageDescriptor } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
 
 export type ReactIntlPhraseProps = {
     translate: (_: string)=> string;
-    formatMessage: IntlFormatters['formatMessage'],
+    formatMessage: IntlFormatters<any>['formatMessage'],
 };
 
 export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhraseProps>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> & React.FC<ReactIntlPhraseProps> {
@@ -26,7 +26,7 @@ export function injectIntl(WrappedComponent: React.ComponentType<ReactIntlPhrase
             }
         }
 
-        formatMessage(messageDescriptor: { id?: string }): ReturnType<ReactIntlPhraseProps['formatMessage']> {
+        formatMessage(messageDescriptor: MessageDescriptor, _values?: any, _opts?: any): ReturnType<ReactIntlPhraseProps['formatMessage']> {
             const { id } = messageDescriptor;
             if (!id) {
                 console.error("formatMessage requires an id")
