@@ -1,26 +1,40 @@
-import React, { Component } from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl-phraseapp';
 import './App.css';
-import logo from './logo.svg';
+import { FormattedMessage, useIntl } from 'react-intl-phraseapp';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>{this.props.translate("welcome.headline")}</h2>
-        </div>
-        <p className="App-intro">
-          <FormattedMessage
-            id="welcome.intro"
-            defaultMessage={`We hope this example will help you integrate PhraseApp into your react app using react-intl`}
-          />
-        </p>
-        <p>{this.props.formatMessage({ id: "welcome.text" })}</p>
-      </div>
-    );
-  }
+function App() {
+ const {formatMessage} = useIntl()
+  
+return (
+  <div className="App">
+    <h2>This is a simple demo of react-intl integration of the In-Context Editor</h2>
+    <p>
+      <FormattedMessage
+        id="hero_title"
+        defaultMessage={`We hope this example will help you integrate PhraseApp into your react app using react-intl`}
+      />
+    </p>
+    <p>
+    <FormattedMessage
+      id="hero_description"
+      formatMessage={''}
+      defaultMessage={`Click the pen icon on the text and interact with our In-context Editor in the lower half of the screen. Change the original text or click the flag icon to change languages. Try it out!`}
+    />
+    </p>
+    <p>
+    <FormattedMessage
+      id="create_this_key"
+      formatMessage={''}
+      defaultMessage={`Uncreated key to show creation capabilities.`}
+    />
+    </p>
+    <p>
+      {formatMessage({id: 'integrate_text'})}
+    </p>
+    <p>
+      {formatMessage({id: 'advantages_text'})}
+    </p>
+  </div>
+  );
 }
 
-export default injectIntl(App);
+export default App;

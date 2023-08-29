@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {IntlProvider} from 'react-intl';
+import ReactDOM from 'react-dom/client';
 import './index.css';
+import App from './App';
 import {initializePhraseAppEditor} from 'react-intl-phraseapp'
+import { IntlProvider } from 'react-intl';
 
 var config = {
   projectId: '00000000000000004158e0858d2fa45c',
@@ -15,14 +15,9 @@ var config = {
 
 initializePhraseAppEditor(config);
 
-const messages = {
-  'welcome.headline': 'This headline is visible when "phraseEnabled" config option is set to false'
-};
-
-
-ReactDOM.render(
-  <IntlProvider locale="en" messages={messages}>
-    <App />
-  </IntlProvider>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <IntlProvider locale="en" messages={{}}>
+    <App/>
+  </IntlProvider>
 );

@@ -1,18 +1,18 @@
 {
-  "name": "react-intl-phraseapp-demo",
-  "version": "1.0.0",
-  "license": "MIT",
+  "name": "demo",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",
-    "react-intl-phraseapp": "link:../..",
-    "react-scripts": "^5.0.1"
+    "react-intl-phraseapp": "file:../../",
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
