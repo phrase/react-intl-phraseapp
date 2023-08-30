@@ -1,9 +1,10 @@
 import { Component } from 'react';
-import { FormattedMessage, WrappedComponentProps, injectIntl } from 'react-intl-phraseapp';
+import { WrappedComponentProps } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl-phraseapp';
 
 type Props = WrappedComponentProps & {translation: 'string'}
 
-class ClassTestComponent extends Component<Props, {}> {
+class ClassTestComponent extends Component<Props, WrappedComponentProps> {
   render() {
     return (
       <div>
@@ -15,8 +16,13 @@ class ClassTestComponent extends Component<Props, {}> {
             />
         </p>
         <p>
+        <FormattedMessage
+          id="create_this_key"
+          defaultMessage={`Uncreated key to show creation capabilities.`}
+        />
+        </p>
+        <p>
           {this.props.intl.formatMessage({ id: this.props.translation })}
-          {this.props.formatMessage({ id: this.props.translation })}
         </p>
       </div>
     );

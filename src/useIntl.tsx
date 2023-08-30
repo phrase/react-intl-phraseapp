@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { IntlShape, useIntl as ReactUseIntl } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
 

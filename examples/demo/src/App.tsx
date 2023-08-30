@@ -18,11 +18,8 @@ return (
       defaultMessage={`Uncreated key to show creation capabilities.`}
     />
     </p>
-
     <p>
       {props.intl.formatMessage({id: 'integrate_title', defaultMessage: 'foo'})}
-      {props.formatMessage({id: 'integrate_title', defaultMessage: 'foo'})}
-
     </p>
     <ClassTestComponent translation="advantages_text"/>
   </div>
