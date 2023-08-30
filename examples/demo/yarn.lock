@@ -10956,14 +10956,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
+"react@portal:../../node_modules/react::locator=demo%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "react@portal:../../node_modules/react::locator=demo%40workspace%3A."
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "read-cache@npm:^1.0.0":
   version: 1.0.0

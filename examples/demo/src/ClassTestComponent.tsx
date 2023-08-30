@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import { WrappedComponentProps } from 'react-intl';
-import { FormattedMessage, injectIntl } from 'react-intl-phraseapp';
+import { WrappedComponentProps, FormattedMessage, injectIntl } from 'react-intl-phraseapp';
 
 type Props = WrappedComponentProps & {translation: 'string'}
 
