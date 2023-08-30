@@ -1,7 +1,6 @@
-import { injectIntl as injectIntlReact, IntlFormatters, IntlShape, MessageDescriptor } from 'react-intl';
+import { injectIntl as injectIntlReact, IntlFormatters, IntlShape, MessageDescriptor, WrappedComponentProps } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
-import React, { Component, ComponentType, FC } from 'react';
-
+import React, { Component, ComponentType } from 'react';
 
 type DefinedState = {
     originalFormatMessage: (
@@ -11,7 +10,7 @@ type DefinedState = {
     ) => string;
   }
 
-export function injectIntl(WrappedComponent: ComponentType<any>, options?: Parameters<typeof injectIntlReact>[1]): ReturnType<typeof injectIntlReact> {
+export function injectIntl(WrappedComponent: ComponentType<any>, options?: Parameters<typeof injectIntlReact>[1]){
     class InjectPhrase extends Component<any, DefinedState> {
         constructor(props) {
             super(props)
