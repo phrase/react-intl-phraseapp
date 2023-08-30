@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl-phraseapp';
 
 type Props = WrappedComponentProps & {translation: 'string'}
 
-class ClassTestComponent extends Component<Props, WrappedComponentProps> {
+class ClassTestComponent extends Component<Props> {
   render() {
     return (
       <div>
