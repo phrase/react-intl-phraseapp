@@ -2,12 +2,21 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
+  "main": "src/index.js",
   "dependencies": {
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.7",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",
-    "react-intl-phraseapp": "file:../../",
-    "react-scripts": "5.0.1"
+    "react-intl-phraseapp": "link:../../dist",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@tsconfig/create-react-app": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

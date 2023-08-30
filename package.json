@@ -2,7 +2,7 @@
   "name": "react-intl-phraseapp",
   "version": "3.2.0",
   "description": "The In-Context-Editor for react using react-intl",
-  "main": "dist/react-intl-phraseapp.js",
+  "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
   "homepage": "https://phrase.com",
   "scripts": {

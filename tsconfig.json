@@ -4,14 +4,12 @@
     "noEmitOnError": true,
     "removeComments": false,
     "sourceMap": true,
-    "target": "es6",
+    "target": "ESNext",
     "jsx": "react",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "declarationDir": "./dist"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*"],
 }
