@@ -1,48 +1,45 @@
-import { injectIntl as injectIntlReact, IntlFormatters, IntlShape, MessageDescriptor, WrappedComponentProps } from 'react-intl';
+import { injectIntl as injectIntlReact, IntlFormatters, MessageDescriptor, useIntl, WrappedComponentProps, WithIntlProps } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
-import React, { Component, ComponentType } from 'react';
+import React from 'react';
 
-type DefinedState = {
-    originalFormatMessage: (
-        message: Parameters<IntlShape['formatMessage']>[0], 
-        _values?: Parameters<IntlShape['formatMessage']>[1],
-        _opts?: Parameters<IntlShape['formatMessage']>[2]
-    ) => string;
-  }
+export function injectIntl<
+  IntlPropName extends string = 'intl',
+  P extends WrappedComponentProps<IntlPropName> = WrappedComponentProps<any>
+>(
+  WrappedComponent: React.ComponentType<P>,
+  options?: Parameters<typeof injectIntlReact>[1]
+): React.ComponentType<WithIntlProps<P>> & {
+  WrappedComponent: typeof WrappedComponent
+} {
+	const PhraseComponent = (props: P) => {
+		const { formatMessage: reactIntlFormatMessage } = useIntl();
+	
+		function translate(keyName: string): string {
+			if (isPhraseEnabled()) {
+				const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
+				return escapeId(escapedString);
+			} else {
+				return reactIntlFormatMessage({ "id": keyName });
+			}
+		}
 
-export function injectIntl(WrappedComponent: ComponentType<any>, options?: Parameters<typeof injectIntlReact>[1]){
-    class InjectPhrase extends Component<any, DefinedState> {
-        constructor(props) {
-            super(props)
-            this.state = {originalFormatMessage: this.props['intl'].formatMessage} as {originalFormatMessage: IntlShape['formatMessage']} ;
-            this.props['intl'].translate = this.translate.bind(this);
-            this.props['intl'].formatMessage = this.formatMessage.bind(this)
-        }
+		function formatMessage(messageDescriptor: MessageDescriptor, _values?: any, _opts?: any): ReturnType<IntlFormatters<any>['formatMessage']> {
+			const { id } = messageDescriptor;
+			if (!id) {
+				console.error("formatMessage requires an id");
+			} else {
+				return translate(id);
+			}
+		}
 
-        translate(keyName: string): string {
-            if (isPhraseEnabled()) {
-                const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
-                return escapeId(escapedString);
-            } else {
-                return this.state.originalFormatMessage({ "id": keyName });
-            }
-        }
-
-        formatMessage(messageDescriptor: MessageDescriptor, _values?: any, _opts?: any): ReturnType<IntlFormatters<any>['formatMessage']> {
-            const { id } = messageDescriptor;
-            if (!id) {
-                console.error("formatMessage requires an id")
-            } else {
-                return this.translate(id);
-            }
-        }
-
-        render() {
-            return (
-                <WrappedComponent {...this.props}/>
-            );
-        }
-    }
-
-    return injectIntlReact(InjectPhrase, options) as any;
-}
+		return (
+			<WrappedComponent
+				translate={translate}
+				formatMessage={formatMessage}
+				{...props}
+			/>
+		);
+	} 
+	
+  return injectIntlReact(PhraseComponent, options) as any;
+};

@@ -1,23 +1,23 @@
-import {initializePhraseAppEditor}  from '../src/functions'
+import {initializePhraseAppEditor}  from '../src/functions';
 
 beforeEach(() => {
-    const scripts =document.getElementsByTagName('script')
+    const scripts = document.getElementsByTagName('script');
     for(let i =0; i< scripts.length; i++) {
-        scripts[i].remove()
+        scripts[i].remove();
     }
 })
 
 test('with old ICE: translation should be rendered by default', () => {
-    let config = {phraseEnabled: true, useOldICE: true, forceInitialize: true}
-    initializePhraseAppEditor(config)
+    let config = {phraseEnabled: true, useOldICE: true, forceInitialize: true};
+    initializePhraseAppEditor(config);
 
     expect(document.getElementsByTagName('script')[0].src)
         .toMatch(/https:\/\/app.phrase.com\/assets\/in-context-editor\/2.0\/app.js\?[\d]/);
 });
 
 test('translation should be rendered by default', () => {
-    let config = {phraseEnabled: true, useOldICE: false, forceInitialize: true}
-    initializePhraseAppEditor(config)
+    let config = {phraseEnabled: true, useOldICE: false, forceInitialize: true};
+    initializePhraseAppEditor(config);
 
     expect(document.getElementsByTagName('script')[0].src)
         .toMatch('https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js');

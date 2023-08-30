@@ -1,6 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import * as Utils from '../helper/test_utils';
-import { injectIntl } from '../src';
+import { injectIntl, WrappedComponentProps } from '../src';
+import { IntlFormatters, MessageDescriptor,  } from 'react-intl';
+
 
 const key = 'key.id';
 const locale = 'en';
@@ -13,7 +15,7 @@ describe('injectIntl', () => {
     let ComponentUnderTest;
 
     beforeEach(() => {
-      function Component({ translate }) {
+      function Component({ translate }: { translate: (keyName: string) => string; } & WrappedComponentProps) {
         const translation = translate(key);
 
         return (<div>{translation}</div>);
@@ -52,7 +54,10 @@ describe('injectIntl', () => {
     let ComponentUnderTest;
 
     beforeEach(() => {
-      function Component({ formatMessage }) {
+      function Component({ formatMessage }: { 
+        formatMessage: (messageDescriptor: MessageDescriptor, _values?: any, _opts?: any) => ReturnType<IntlFormatters<any>['formatMessage']> } & 
+        WrappedComponentProps
+      ) {
         const message = formatMessage({ id: key }, {name: 'Eric'});
 
         return (<div>{message}</div>);

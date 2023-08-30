@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { WrappedComponentProps, FormattedMessage, injectIntl } from 'react-intl-phraseapp';
+import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl-phraseapp';
 
-type Props = WrappedComponentProps & {translation: 'string'}
+type Props = WrappedComponentProps & { translation: string };
 
 class ClassTestComponent extends Component<Props> {
   render() {
@@ -9,6 +9,7 @@ class ClassTestComponent extends Component<Props> {
       <div>
         <h3>Class component:</h3>
         <p>
+           {/* one can use Formatted Message */}
           <FormattedMessage
             id="integrate_text"
             defaultMessage={`We hope this example will help you integrate PhraseApp into your react app using react-intl`}
@@ -21,6 +22,8 @@ class ClassTestComponent extends Component<Props> {
         />
         </p>
         <p>
+          {/* or use HOC injectIntl wrapper to use the intl.formatMessage prop
+              WrappedComponentProps must be typed with the component's props! */}
           {this.props.intl.formatMessage({ id: this.props.translation })}
         </p>
       </div>

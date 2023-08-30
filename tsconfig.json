@@ -6,10 +6,11 @@
     "sourceMap": true,
     "target": "ESNext",
     "jsx": "react",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "declaration": true,
-    "declarationDir": "./dist"
+    "declarationDir": "./dist",
+    "esModuleInterop": true,
   },
   "include": ["src/**/*"],
 }

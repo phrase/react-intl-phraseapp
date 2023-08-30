@@ -27,13 +27,14 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/react-test-renderer": "^18.0.0",
-    "jest": "^25.1.0",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4",
     "react": "^18.2.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",
     "react-test-renderer": "^18.2.0",
-    "ts-jest": "^25.2.0",
+    "ts-jest": "^29.1.1",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
@@ -50,7 +51,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -58,7 +59,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/examples/"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   },
   "packageManager": "yarn@3.6.3"
 }
