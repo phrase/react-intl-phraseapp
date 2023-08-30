@@ -8,7 +8,7 @@ import { IntlProvider } from 'react-intl';
 var config = {
   projectId: '00000000000000004158e0858d2fa45c',
   accountId: '0bed59e5',
-  phraseEnabled: false,
+  phraseEnabled: true,
   prefix: '[[__',
   suffix: '__]]'
 }
