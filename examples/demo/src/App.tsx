@@ -18,10 +18,6 @@ const App = () => {
       <p>
         {/* one can use formatMessage from useIntl hook */}
         { formatMessage({ id: 'create_this_key', defaultMessage: 'Uncreated key to show creation capabilities.' }) }
-        <FormattedMessage
-          id="create_this_key"
-          defaultMessage={`Uncreated key to show creation capabilities.`}
-        />
       </p>
 
       <ClassTestComponent translation="advantages_text" />

@@ -13,6 +13,7 @@ export function injectIntl<
 } {
 	const PhraseComponent = (props: P) => {
 		const { formatMessage: reactIntlFormatMessage } = useIntl();
+		props['intl'].formatMessage = formatMessage
 	
 		function translate(keyName: string): string {
 			if (isPhraseEnabled()) {
