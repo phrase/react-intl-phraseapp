@@ -8,6 +8,12 @@ module.exports = {
                     "ts-loader"
                 ]
             },
+            {
+                test: /examples\/demo.*/,
+                include() {
+                    return false
+                }
+            },
         ]
     },
     externals: {
@@ -29,7 +35,7 @@ module.exports = {
     ],
     output: {
         path: __dirname + '/dist',
-        filename: 'react-intl-phraseapp.js',
+        filename: 'index.js',
         libraryTarget: "umd",
         library: 'react-intl-phraseapp'
     }

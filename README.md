@@ -36,7 +36,7 @@ yarn add react-intl-phraseapp
 You can also build it directly from source to get the latest and greatest:
 
 ```bash
-yarn run dist
+yarn dist
 ```
 
 ### Development
@@ -85,15 +85,17 @@ initializePhraseAppEditor(config);
 
 In addition to the settings in your config, set the US datacenter to enable it working with the US endpoints.
 ```js
-
   datacenter: 'us',
 ```
 
 #### Import from react-intl-phraseapp rather than from react-intl
 
-Find all imports of `FormattedMessage`, and change the source from `react-intl` to `react-intl-phraseapp`.
+Find all available imports for `react-intl` by changing the source from `react-intl` to `react-intl-phraseapp`, such as `FormattedMessage`, `useIntl`, `WrappedComponentProps`, and `injectIntl`.
 
-`import {FormattedMessage} from 'react-intl-phraseapp'`
+
+`import { FormattedMessage } from 'react-intl-phraseapp'`
+`import { useIntl, WrappedComponentProps } from 'react-intl-phraseapp'`
+`import { injectIntl, WrappedComponentProps } from 'react-intl-phraseapp'`
 
 ### Browser support
 

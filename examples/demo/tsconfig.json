@@ -1,0 +1,14 @@
+{
+    "extends": "@tsconfig/create-react-app/tsconfig.json",
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "lib": ["dom", "esnext", "esnext.intl", "es2017.intl", "es2018.intl"]
+    },
+    "include": ["src/**/*"],
+    "exclude": ["**/*.spec.ts", "node_modules"]
+  }

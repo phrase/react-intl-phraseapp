@@ -16,7 +16,7 @@ In order to run the demo you need to provide your phrase project ID and account 
 - from the left hand side menu, select "API" tab,
 - copy the project ID,
 - you can find the account ID in your organizations page
-- inside `index.js` file find & replace `projectId` and `accountId` with your own IDs
+- inside `index.tsx` file find & replace `projectId` and `accountId` with your own IDs
 
 ## Run
 

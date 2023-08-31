@@ -23,7 +23,7 @@ describe('useIntl', () => {
       const { formatMessage } = useIntl();
       return (<div>{formatMessage(messages.greeting, { name: 'Eric' })}</div>);
     }
-    ComponentUnderTest = injectIntl(Component);
+    ComponentUnderTest = Component;
   });
 
   describe('useIntl', () => {
