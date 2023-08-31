@@ -6,9 +6,21 @@ exports[`injectIntl formatMessage when phrase is enabled key should be rendered 
 </div>
 `;
 
+exports[`injectIntl formatMessage when phrase is enabled when variable on key key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  {{__phrase_variable_key.id__}}
+</div>
+`;
+
 exports[`injectIntl formatMessage when phrase is not enabled key should be rendered using translate and injectIntl HOC 1`] = `
 <div>
   Some translation
+</div>
+`;
+
+exports[`injectIntl formatMessage when phrase is not enabled when variable on key key should be rendered using translate and injectIntl HOC 1`] = `
+<div>
+  Eric translation
 </div>
 `;
 

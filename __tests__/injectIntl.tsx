@@ -5,9 +5,11 @@ import { IntlFormatters, MessageDescriptor,  } from 'react-intl';
 
 
 const key = 'key.id';
+const variable_key = 'variable_key.id';
 const locale = 'en';
 const messages = {
-  [key]: 'Some translation'
+  [key]: 'Some translation',
+  [variable_key]: '{variable} translation'
 };
 
 describe('injectIntl', () => {
@@ -54,15 +56,13 @@ describe('injectIntl', () => {
     let ComponentUnderTest;
 
     beforeEach(() => {
-      function Component({ formatMessage }: { 
-        formatMessage: (messageDescriptor: MessageDescriptor, _values?: any, _opts?: any) => ReturnType<IntlFormatters<any>['formatMessage']> } & 
+      function Component({ formatMessage }: {
+        formatMessage: (messageDescriptor: MessageDescriptor, values?: any, _opts?: any) => ReturnType<IntlFormatters<any>['formatMessage']> } & 
         WrappedComponentProps
       ) {
         const message = formatMessage({ id: key }, {name: 'Eric'});
-
         return (<div>{message}</div>);
       }
-
       ComponentUnderTest = injectIntl(Component);
     });
 
@@ -76,6 +76,29 @@ describe('injectIntl', () => {
 
         expect(tree).toMatchSnapshot();
       });
+
+      describe("when variable on key", () => {
+        beforeEach(() => {
+          function Component({ formatMessage }: {
+            formatMessage: (messageDescriptor: MessageDescriptor, values?: any, _opts?: any) => ReturnType<IntlFormatters<any>['formatMessage']> } & 
+            WrappedComponentProps
+          ) {
+            const message = formatMessage({ id: variable_key }, {variable: 'Eric'});
+            return (<div>{message}</div>);
+          }
+          ComponentUnderTest = injectIntl(Component);
+        })
+
+        test('key should be rendered using translate and injectIntl HOC', () => {
+          Utils.setPhraseConfig();
+  
+          const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+  
+          const tree = component.toJSON();
+  
+          expect(tree).toMatchSnapshot();
+        });
+      })
     });
 
     describe('when phrase is not enabled', () => {
@@ -89,6 +112,30 @@ describe('injectIntl', () => {
 
         expect(tree).toMatchSnapshot();
       });
+
+      describe("when variable on key", () => {
+        beforeEach(() => {
+          function Component({ formatMessage }: {
+            formatMessage: (messageDescriptor: MessageDescriptor, values?: any, _opts?: any) => ReturnType<IntlFormatters<any>['formatMessage']> } & 
+            WrappedComponentProps
+          ) {
+            const message = formatMessage({ id: variable_key }, {variable: 'Eric'});
+            return (<div>{message}</div>);
+          }
+          ComponentUnderTest = injectIntl(Component);
+        })
+
+        test('key should be rendered using translate and injectIntl HOC', () => {
+          Utils.setPhraseConfig();
+          Utils.disablePhrase();
+  
+          const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+  
+          const tree = component.toJSON();
+  
+          expect(tree).toMatchSnapshot();
+        });
+      })
     });
   });
 });
