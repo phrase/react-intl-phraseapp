@@ -90,9 +90,12 @@ In addition to the settings in your config, set the US datacenter to enable it w
 
 #### Import from react-intl-phraseapp rather than from react-intl
 
-Find all imports of `FormattedMessage`, and change the source from `react-intl` to `react-intl-phraseapp`.
+Find all available imports for `react-intl` by changing the source from `react-intl` to `react-intl-phraseapp`, such as `FormattedMessage`, `useIntl`, `WrappedComponentProps`, and `injectIntl`.
 
-`import {FormattedMessage} from 'react-intl-phraseapp'`
+
+`import { FormattedMessage, WrappedComponentProps } from 'react-intl-phraseapp'`
+`import { useIntl, WrappedComponentProps } from 'react-intl-phraseapp'`
+`import { injectIntl, WrappedComponentProps } from 'react-intl-phraseapp'`
 
 ### Browser support
 
