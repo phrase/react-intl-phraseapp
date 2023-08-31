@@ -26,6 +26,9 @@ class ClassTestComponent extends Component<Props> {
               WrappedComponentProps must be typed with the component's props! */}
           {this.props.intl.formatMessage({ id: this.props.translation })}
         </p>
+        <p>
+          {this.props.intl.formatMessage({id: 'variable_text'}, {variable: <b>SomeVariableForTest</b>})}
+        </p>
       </div>
     );
   }

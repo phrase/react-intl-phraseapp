@@ -15,21 +15,21 @@ export function injectIntl<
 		const { formatMessage: reactIntlFormatMessage } = useIntl();
 		props['intl'].formatMessage = formatMessage
 	
-		function translate(keyName: string): string {
+		function translate(keyName: string, values: Record<string, any>): string {
 			if (isPhraseEnabled()) {
 				const escapedString = keyName.replace("<", "[[[[[[html_open]]]]]]").replace(">", "[[[[[[html_close]]]]]]");
 				return escapeId(escapedString);
 			} else {
-				return reactIntlFormatMessage({ "id": keyName });
+				return reactIntlFormatMessage({ "id": keyName }, values);
 			}
 		}
 
-		function formatMessage(messageDescriptor: MessageDescriptor, _values?: any, _opts?: any): ReturnType<IntlFormatters<any>['formatMessage']> {
+		function formatMessage(messageDescriptor: MessageDescriptor, values?: any, _opts?: any): ReturnType<IntlFormatters<any>['formatMessage']> {
 			const { id } = messageDescriptor;
 			if (!id) {
 				console.error("formatMessage requires an id");
 			} else {
-				return translate(id);
+				return translate(id, values);
 			}
 		}
 
