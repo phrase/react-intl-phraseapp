@@ -1,7 +1,7 @@
 'server-only'
 
 import { createIntl } from '@formatjs/intl';
-import { useSSRIntl as initIntl } from "react-intl-phraseapp";
+import { useSSRIntl as initIntl } from "react-intl-phraseapp/useSSRIntl";
 
 export async function getIntl() {
   const locale = 'en'
@@ -14,6 +14,5 @@ export async function getIntl() {
     variable_text: "{variable} variable should show up when ICE is not enabled!"
   }
   const intl = initIntl({locale, messages})
-  // const intl = createIntl({locale, messages})
   return intl
 }
