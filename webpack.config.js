@@ -9,7 +9,7 @@ module.exports = {
                 ]
             },
             {
-                test: /examples\/demo.*/,
+                test: /examples/,
                 include() {
                     return false
                 }
@@ -37,6 +37,7 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'index.js',
         libraryTarget: "umd",
+        globalObject: 'this',
         library: 'react-intl-phraseapp'
     }
 };
