@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  padding: 32px;
+}
+
+
+body > iframe
+{
+  display: none;
+}
