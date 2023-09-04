@@ -11,8 +11,8 @@ export function initializePhraseAppEditor (config: any) {
   if (phraseAppEditor && !config.forceInitialize) return;
   
   phraseAppEditor = true;
-  (<any>window).PHRASEAPP_ENABLED = config.phraseEnabled;  
-  (<any>window).PHRASEAPP_CONFIG = sanitizeConfig(config);
+  globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
+  globalThis.PHRASEAPP_CONFIG = sanitizeConfig(config);
 
   if (config.phraseEnabled) {
       const phraseapp = document.createElement('script');
@@ -35,10 +35,10 @@ export function initializePhraseAppEditor (config: any) {
 }
 
 export function isPhraseEnabled() : boolean {
-  return (<any>window).PHRASEAPP_ENABLED
+  return globalThis.PHRASEAPP_ENABLED
 }
 
 export function escapeId (id : string | number) : string {
-  let config = (<any>window).PHRASEAPP_CONFIG;
+  let config = globalThis.PHRASEAPP_CONFIG;
   return  config.prefix + 'phrase_' + id + config.suffix;
 }

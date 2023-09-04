@@ -32,6 +32,7 @@ module.exports = {
         }
     },
     entry: { 
+        index: './src/index.ts',
         FormattedMessage: './src/FormattedMessage.tsx',
         functions: './src/functions.ts',
         injectIntl: './src/injectIntl.tsx',
@@ -41,7 +42,6 @@ module.exports = {
      },
     output: {
         path: __dirname + '/dist',
-        sourceMapFilename: '[name].js.map',
         filename: '[name].js',
         libraryTarget: "umd",
         globalObject: 'this',

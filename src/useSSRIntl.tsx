@@ -1,7 +1,7 @@
 import { createIntl, createIntlCache } from '@formatjs/intl';
 import { escapeId, isPhraseEnabled } from './functions';
 
-export async function useSSRIntl({locale, messages}) {
+export function useSSRIntl({locale, messages}) {
   const cache = createIntlCache();
   const intl = createIntl({locale, messages}, cache)
 
