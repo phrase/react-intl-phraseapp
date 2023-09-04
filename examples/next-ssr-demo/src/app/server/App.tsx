@@ -13,11 +13,21 @@ export default async function App() {
       </p>
       <p>
         {/* One can use formatMessage as defined by getIntl */}
+        { formatMessage({ id: 'hero_title'}) }
+      </p>
+      <p>
+        { formatMessage({ id: 'advantages_text'}) }
+      </p>
+      <p>
         { formatMessage({ id: 'create_this_key'}) }
+      </p>
+      <p>
+        { formatMessage({ id: 'integrate_text'}) }
       </p>
       <p>
         { formatMessage({ id: 'variable_text'}) }
       </p>
+
       {/* Class components cannot be SSR */}
     </div>
   );

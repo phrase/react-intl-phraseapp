@@ -1,5 +1,6 @@
 'server-only'
-import { IntlShape, createIntl, createIntlCache } from "@formatjs/intl";
+// import { IntlShape, createIntl, createIntlCache } from "@formatjs/intl"; NOTE the @formatjs/intl, not react-intl
+import { useSSRIntl as initIntl } from "react-intl-phraseapp/useSSRIntl";
 
 export function getIntl() {
   const locale = 'en'
@@ -12,16 +13,19 @@ export function getIntl() {
     variable_text: "{variable} variable should show up when ICE is not enabled!"
   }
 
-  const cache = createIntlCache();
-  const intl = {
-    ...createIntl({locale, messages}, cache),
-    // Add condition here to overwrite formatMessage with this format when needed
-    formatMessage: (
-      messageDescriptor: Parameters<IntlShape['formatMessage']>[0],
-      _values?: Parameters<IntlShape['formatMessage']>[1],
-      _opts?: Parameters<IntlShape['formatMessage']>[2]
-    ) => "{{__phrase_" + messageDescriptor.id + "__}}"
-  }
+  const intl = initIntl({locale, messages})
+
+  // Or you can do something like this
+  // const cache = createIntlCache();
+  // const intl = {
+  //   ...createIntl({locale, messages}, cache),
+  //   // Add condition here to overwrite formatMessage with this format when needed
+  //   formatMessage: (
+  //     messageDescriptor: Parameters<IntlShape['formatMessage']>[0],
+  //     _values?: Parameters<IntlShape['formatMessage']>[1],
+  //     _opts?: Parameters<IntlShape['formatMessage']>[2]
+  //   ) => "[[__phrase_" + messageDescriptor.id + "__]]"
+  // }
 
   return intl
 }
