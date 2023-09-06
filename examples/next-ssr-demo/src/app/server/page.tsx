@@ -3,7 +3,7 @@
 import './App.css';
 import App from './App';
 import Script from 'next/script';
-import { createPhraseScript } from 'react-intl-phraseapp/functions';
+import { createPhraseAppEditorScript } from 'react-intl-phraseapp/functions';
 
 export default async function Page() {
   // Adjust your Project and Account ids
@@ -18,7 +18,7 @@ export default async function Page() {
   return (
     <div>
       <App/>
-      <Script id="phrase-script" dangerouslySetInnerHTML={{__html: createPhraseScript(config)}} />
+      <Script id="phrase-script" dangerouslySetInnerHTML={{__html: createPhraseAppEditorScript(config)}} />
     </div>
   );
 }

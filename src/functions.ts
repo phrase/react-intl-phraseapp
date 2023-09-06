@@ -16,7 +16,7 @@ type Config = {
   suffix: string;
 }
 
-export function createPhraseScript(userConfig: Partial<Config>) {
+export function createPhraseAppEditorScript(userConfig: Partial<Config>) {
   const defaultConfig = {
     projectId: undefined,
     accountId: undefined,
