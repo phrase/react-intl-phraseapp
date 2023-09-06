@@ -24,7 +24,7 @@ export default async function Page() {
   return (
     <div>
       <App/>
-      <script defer dangerouslySetInnerHTML={createPhraseScript()}/>
+<Script id="phrase-script" defer dangerouslySetInnerHTML={createPhraseScript()} />
     </div>
   );
 }
