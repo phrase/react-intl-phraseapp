@@ -1,5 +1,6 @@
 module.exports = {
     resolve: { extensions: ['.js', '.ts', '.tsx'] },
+    mode: 'production',
     module: {
         rules: [
             {
@@ -9,7 +10,7 @@ module.exports = {
                 ]
             },
             {
-                test: /examples\/demo.*/,
+                test: /examples/,
                 include() {
                     return false
                 }
@@ -30,13 +31,20 @@ module.exports = {
             amd: 'react'
         }
     },
-    entry: [
-        './src/index.ts'
-    ],
+    entry: { 
+        index: './src/index.ts',
+        FormattedMessage: './src/FormattedMessage.tsx',
+        functions: './src/functions.ts',
+        injectIntl: './src/injectIntl.tsx',
+        useIntl: './src/useIntl.tsx',
+        useSSRIntl: './src/useSSRIntl.tsx',
+        WrappedComponentProps: './src/WrappedComponentProps.ts',
+     },
     output: {
         path: __dirname + '/dist',
-        filename: 'index.js',
+        filename: '[name].js',
         libraryTarget: "umd",
+        globalObject: 'this',
         library: 'react-intl-phraseapp'
     }
 };

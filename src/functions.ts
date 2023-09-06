@@ -7,12 +7,36 @@ function sanitizeConfig(config: any) : any {
   return config;
 }
 
+type Config = {
+  accountId: string;
+  projectId: string;
+  datacenter: 'eu' | 'us';
+  phraseEnabled: boolean;
+  prefix: string;
+  suffix: string;
+}
+
+export function createPhraseAppEditorScript(userConfig: Partial<Config>) {
+  const defaultConfig = {
+    projectId: undefined,
+    accountId: undefined,
+    datacenter: 'eu',
+    phraseEnabled: true,
+    prefix: '[[__',
+    suffix: '__]]'
+  }
+  const config = {...defaultConfig, ...userConfig}
+  globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
+  globalThis.PHRASEAPP_CONFIG = config
+  return "window.PHRASEAPP_CONFIG = " + JSON.stringify(config) + ";" + "function init() {const phraseapp = document.createElement('script');phraseapp.type = 'module';phraseapp.async = true;phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js';let s = document.getElementsByTagName('script')[0]; s?.parentNode?.insertBefore(phraseapp, s);};init();"
+}
+
 export function initializePhraseAppEditor (config: any) {
   if (phraseAppEditor && !config.forceInitialize) return;
   
   phraseAppEditor = true;
-  (<any>window).PHRASEAPP_ENABLED = config.phraseEnabled;  
-  (<any>window).PHRASEAPP_CONFIG = sanitizeConfig(config);
+  globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
+  globalThis.PHRASEAPP_CONFIG = sanitizeConfig(config);
 
   if (config.phraseEnabled) {
       const phraseapp = document.createElement('script');
@@ -35,10 +59,10 @@ export function initializePhraseAppEditor (config: any) {
 }
 
 export function isPhraseEnabled() : boolean {
-  return (<any>window).PHRASEAPP_ENABLED
+  return globalThis.PHRASEAPP_ENABLED
 }
 
 export function escapeId (id : string | number) : string {
-  let config = (<any>window).PHRASEAPP_CONFIG;
+  let config = globalThis.PHRASEAPP_CONFIG;
   return  config.prefix + 'phrase_' + id + config.suffix;
 }
