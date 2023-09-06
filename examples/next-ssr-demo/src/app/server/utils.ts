@@ -1,6 +1,6 @@
 'server-only'
 // import { IntlShape, createIntl, createIntlCache } from "@formatjs/intl"; NOTE the @formatjs/intl, not react-intl
-import { useSSRIntl as initIntl } from "react-intl-phraseapp/useSSRIntl";
+import { useSSRIntl as initIntl } from "react-intl-phraseapp/useSSRIntl"; // If you import  "react-intl-phraseapp" you will get useContext related error
 
 export function getIntl() {
   const locale = 'en'

@@ -7,6 +7,30 @@ function sanitizeConfig(config: any) : any {
   return config;
 }
 
+type Config = {
+  accountId: string;
+  projectId: string;
+  datacenter: 'eu' | 'us';
+  phraseEnabled: boolean;
+  prefix: string;
+  suffix: string;
+}
+
+export function createPhraseScript(userConfig: Partial<Config>) {
+  const defaultConfig = {
+    projectId: undefined,
+    accountId: undefined,
+    datacenter: 'eu',
+    phraseEnabled: true,
+    prefix: '[[__',
+    suffix: '__]]'
+  }
+  const config = {...defaultConfig, ...userConfig}
+  globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
+  globalThis.PHRASEAPP_CONFIG = config
+  return "window.PHRASEAPP_CONFIG = " + JSON.stringify(config) + ";" + "function init() {const phraseapp = document.createElement('script');phraseapp.type = 'module';phraseapp.async = true;phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js';let s = document.getElementsByTagName('script')[0]; s?.parentNode?.insertBefore(phraseapp, s);};init();"
+}
+
 export function initializePhraseAppEditor (config: any) {
   if (phraseAppEditor && !config.forceInitialize) return;
   
