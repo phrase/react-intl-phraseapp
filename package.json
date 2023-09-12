@@ -47,10 +47,19 @@
   ],
   "main": "dist/index.js",
   "exports": {
+    ".": "./dist/index.js",
     "./functions": "./dist/functions.js",
     "./injectIntl": "./dist/injectIntl.js",
     "./useIntl": "./dist/useIntl.js",
     "./useSSRIntl": "./dist/useSSRIntl.js"
+  },
+  "typesVersions": {
+    "*": {
+      "functions": ["dist/functions.d.ts"],
+      "injectIntl": ["dist/injectIntl.d.ts"],
+      "useIntl": ["dist/useIntl.d.ts"],
+      "useSSRIntl": ["dist/useSSRIntl.d.ts"]
+    }
   },
   "sideEffects": false,
   "jest": {
