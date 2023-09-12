@@ -45,6 +45,7 @@
   "files": [
     "dist/"
   ],
+  "main": "dist/index.js",
   "sideEffects": false,
   "jest": {
     "transform": {
