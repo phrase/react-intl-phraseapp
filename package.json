@@ -46,6 +46,12 @@
     "dist/"
   ],
   "main": "dist/index.js",
+  "exports": {
+    "./functions": "./dist/functions.js",
+    "./injectIntl": "./dist/injectIntl.js",
+    "./useIntl": "./dist/useIntl.js",
+    "./useSSRIntl": "./dist/useSSRIntl.js"
+  },
   "sideEffects": false,
   "jest": {
     "transform": {
