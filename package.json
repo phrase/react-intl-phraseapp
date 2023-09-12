@@ -46,7 +46,7 @@
     "dist/"
   ],
   "main": "dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "/dist/index.d.ts",
   "sideEffects": false,
   "jest": {
     "transform": {
