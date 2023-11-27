@@ -1,6 +1,7 @@
 let phraseAppEditor = false;
 
-function sanitizeConfig(config: any) : any {
+function sanitizeConfig(config: any): any {
+  if (typeof config !== 'object') config = {};
   config.prefix = config.prefix ? config.prefix : '{{__';
   config.suffix = config.suffix ? config.suffix : '__}}';
 
@@ -25,7 +26,11 @@ export function createPhraseAppEditorScript(userConfig: Partial<Config>) {
     prefix: '[[__',
     suffix: '__]]'
   }
-  const config = {...defaultConfig, ...userConfig}
+  const config = {
+    ...defaultConfig,
+    ...userConfig,
+    origin: 'react-intl-phraseapp'
+  }
   globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
   globalThis.PHRASEAPP_CONFIG = config
   return "window.PHRASEAPP_CONFIG = " + JSON.stringify(config) + ";" + "function init() {const phraseapp = document.createElement('script');phraseapp.type = 'module';phraseapp.async = true;phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js';let s = document.getElementsByTagName('script')[0]; s?.parentNode?.insertBefore(phraseapp, s);};init();"
@@ -36,7 +41,10 @@ export function initializePhraseAppEditor (config: any) {
   
   phraseAppEditor = true;
   globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
-  globalThis.PHRASEAPP_CONFIG = sanitizeConfig(config);
+  globalThis.PHRASEAPP_CONFIG = {
+    ...sanitizeConfig(config),
+    origin: 'react-intl-phraseapp'
+  }
 
   if (config.phraseEnabled) {
       const phraseapp = document.createElement('script');
