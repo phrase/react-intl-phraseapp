@@ -14,5 +14,5 @@ jobs:
           days-before-issue-stale: 30
           days-before-issue-close: 7
           stale-issue-label: "stale"
-          stale-issue-message: "Hey! This issue is still open, but there hasn't been any activity for a week now, so we will be marking this issue as stale and closing it in a week if it's still inactive."
+          stale-issue-message: "Hey! This issue is still open, but there hasn't been any activity for a month now, so we will be marking this issue as stale and closing it in a week if it's still inactive."
           close-issue-message: "This issue was closed because it has been inactive for one week since being marked as stale."
