@@ -1,4 +1,5 @@
 let phraseAppEditor = false;
+const PHRASEAPP_ICE_URL = 'https://cdn.phrase.com/latest/ice/index.js';
 
 function sanitizeConfig(config: any): any {
   if (typeof config !== 'object') config = {};
@@ -33,7 +34,7 @@ export function createPhraseAppEditorScript(userConfig: Partial<Config>) {
   }
   globalThis.PHRASEAPP_ENABLED = config.phraseEnabled
   globalThis.PHRASEAPP_CONFIG = config
-  return "window.PHRASEAPP_CONFIG = " + JSON.stringify(config) + ";" + "function init() {const phraseapp = document.createElement('script');phraseapp.type = 'module';phraseapp.async = true;phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js';let s = document.getElementsByTagName('script')[0]; s?.parentNode?.insertBefore(phraseapp, s);};init();"
+  return "window.PHRASEAPP_CONFIG = " + JSON.stringify(config) + ";" + "function init() {const phraseapp = document.createElement('script');phraseapp.type = 'module';phraseapp.async = true;phraseapp.src = '" + PHRASEAPP_ICE_URL + "';let s = document.getElementsByTagName('script')[0]; s?.parentNode?.insertBefore(phraseapp, s);};init();"
 }
 
 export function initializePhraseAppEditor (config: any) {
@@ -53,7 +54,7 @@ export function initializePhraseAppEditor (config: any) {
         phraseapp.src = ['https://', 'app.phrase.com/assets/in-context-editor/2.0/app.js?', new Date().getTime()].join('');
       } else {
         phraseapp.type = 'module';
-        phraseapp.src = 'https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js'
+        phraseapp.src = PHRASEAPP_ICE_URL
       }
 
       phraseapp.async = true;
