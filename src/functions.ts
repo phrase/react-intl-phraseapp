@@ -1,5 +1,5 @@
 let phraseAppEditor = false;
-const PHRASEAPP_ICE_URL = 'https://cdn.phrase.com/latest/ice/index.js';
+const PHRASEAPP_ICE_URL = 'https://cdn.phrase.com/strings/plugins/editor/latest/ice/index.js';
 
 function sanitizeConfig(config: any): any {
   if (typeof config !== 'object') config = {};
