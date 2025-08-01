@@ -20,5 +20,5 @@ test('translation should be rendered by default', () => {
     initializePhraseAppEditor(config);
 
     expect(document.getElementsByTagName('script')[0].src)
-        .toMatch('https://d2bgdldl6xit7z.cloudfront.net/latest/ice/index.js');
+        .toMatch('https://cdn.phrase.com/strings/plugins/editor/latest/ice/index.js');
 });
