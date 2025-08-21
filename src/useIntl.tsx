@@ -1,14 +1,20 @@
-import { IntlShape, useIntl as ReactUseIntl } from 'react-intl';
+import { useIntl as useReactIntl, MessageDescriptor, PrimitiveType } from 'react-intl';
 import { escapeId, isPhraseEnabled } from './functions';
 
-export function useIntl(): IntlShape {
-  if (isPhraseEnabled()) {
-    const intl = ReactUseIntl();
-    function wrappedFormatMessage(...args) {
-      return escapeId(args[0]?.id || '');
+export function useIntl() {
+    const intl = useReactIntl();
+    if (isPhraseEnabled()) {
+
+        function wrappedFormatMessage(
+            descriptor: MessageDescriptor,
+            values?: Record<string, PrimitiveType | React.ReactNode>,
+            opts?: any
+        ): string | React.ReactNode[] {
+            return escapeId(descriptor?.id || '');
+        }
+
+        return { ...intl, formatMessage: wrappedFormatMessage };
+    } else {
+        return intl;
     }
-    return { ...intl, formatMessage: wrappedFormatMessage };
-  } else {
-    return ReactUseIntl();
-  }
 };

@@ -30,11 +30,9 @@ describe('injectIntl', () => {
       test('key should be rendered using translate and injectIntl HOC', () => {
         Utils.setPhraseConfig();
 
-        const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+        const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
 
-        const tree = component.toJSON();
-
-        expect(tree).toMatchSnapshot();
+       expect(container.firstChild).toMatchSnapshot();
       });
     });
 
@@ -43,11 +41,9 @@ describe('injectIntl', () => {
         Utils.setPhraseConfig();
         Utils.disablePhrase();
 
-        const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+        const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
 
-        const tree = component.toJSON();
-
-        expect(tree).toMatchSnapshot();
+         expect(container.firstChild).toMatchSnapshot();
       });
     });
   });
@@ -70,11 +66,9 @@ describe('injectIntl', () => {
       test('key should be rendered using translate and injectIntl HOC', () => {
         Utils.setPhraseConfig();
 
-        const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+        const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
 
-        const tree = component.toJSON();
-
-        expect(tree).toMatchSnapshot();
+        expect(container.firstChild).toMatchSnapshot();
       });
 
       describe("when variable on key", () => {
@@ -92,11 +86,9 @@ describe('injectIntl', () => {
         test('key should be rendered using translate and injectIntl HOC', () => {
           Utils.setPhraseConfig();
   
-          const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+          const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
   
-          const tree = component.toJSON();
-  
-          expect(tree).toMatchSnapshot();
+          expect(container.firstChild).toMatchSnapshot();
         });
       })
     });
@@ -106,11 +98,9 @@ describe('injectIntl', () => {
         Utils.setPhraseConfig();
         Utils.disablePhrase();
 
-        const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+       const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
 
-        const tree = component.toJSON();
-
-        expect(tree).toMatchSnapshot();
+        expect(container.firstChild).toMatchSnapshot();
       });
 
       describe("when variable on key", () => {
@@ -129,11 +119,9 @@ describe('injectIntl', () => {
           Utils.setPhraseConfig();
           Utils.disablePhrase();
   
-          const component = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
+          const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />, {locale, messages});
   
-          const tree = component.toJSON();
-  
-          expect(tree).toMatchSnapshot();
+          expect(container.firstChild).toMatchSnapshot();
         });
       })
     });

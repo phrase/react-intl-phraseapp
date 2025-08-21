@@ -4,19 +4,19 @@
   "private": true,
   "main": "src/index.js",
   "dependencies": {
-    "@types/jest": "^29.5.4",
-    "@types/node": "^20.5.7",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-intl": "^6.4.4",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-intl": "^7.1.11",
     "react-intl-phraseapp": "link:../../dist",
     "react-scripts": "5.0.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@tsconfig/create-react-app": "^2.0.1"
+    "@tsconfig/create-react-app": "^2.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
