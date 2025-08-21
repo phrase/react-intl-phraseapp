@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`key should be decorated with prefix/suffix 1`] = `
 <span>
@@ -6,8 +6,4 @@ exports[`key should be decorated with prefix/suffix 1`] = `
 </span>
 `;
 
-exports[`translation should be rendered by default 1`] = `
-<span>
-  foo bar
-</span>
-`;
+exports[`translation should be rendered by default 1`] = `foo bar`;
