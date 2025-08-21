@@ -4819,8 +4819,8 @@ __metadata:
     webpack: ^5.101.2
     webpack-cli: ^6.0.1
   peerDependencies:
-    react: ">=18.0.0"
-    react-intl: ">=6"
+    react: ">=19.0.0"
+    react-intl: ">=7"
   languageName: unknown
   linkType: soft
 
