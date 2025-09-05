@@ -28,9 +28,8 @@ describe('useIntl', () => {
 
   describe('useIntl', () => {
     it('used underlying useIntl', () => {
-      const component = Utils.createComponentWithIntl(<ComponentUnderTest />);
-      const tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
+      const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />);
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
@@ -40,9 +39,8 @@ describe('useIntl', () => {
     });
 
     it('uses wrapped useIntl', () => {
-      const component = Utils.createComponentWithIntl(<ComponentUnderTest />);
-      const tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
+      const { container } = Utils.createComponentWithIntl(<ComponentUnderTest />);
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 });
