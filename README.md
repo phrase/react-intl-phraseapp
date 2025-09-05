@@ -15,7 +15,9 @@ To use react-intl-phraseapp with your application you have to:
 
 ### Demo
 
-You can find a demo project in the `examples/demo` folder, just run `yarn && yarn start`
+You can find a demo project in the `examples/demo` folder, just run:
+- `yarn dist` in root
+- `yarn && yarn start` in `examples/demo`
 
 ### Installation
 
