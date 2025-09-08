@@ -4,6 +4,7 @@ import './App.css';
 import { initializePhraseAppEditor } from 'react-intl-phraseapp';
 import { IntlProvider } from 'react-intl';
 import App from './App';
+import { useEffect } from 'react';
 
 export const page = () => {
   const config = {
@@ -23,8 +24,10 @@ export const page = () => {
     variable_text: "{variable} variable should show up when ICE is not enabled!"
   }
 
-  initializePhraseAppEditor(config);
-
+  useEffect(() =>{
+    initializePhraseAppEditor(config);
+  })
+  
   return (
     <IntlProvider locale="en" messages={messages}>
       <App/>
