@@ -1,8 +1,8 @@
-import React from 'react';
+import { useEffect } from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {initializePhraseAppEditor} from 'react-intl-phraseapp'
+import { initializePhraseAppEditor } from 'react-intl-phraseapp'
 import { IntlProvider } from 'react-intl';
 
 var config = {
@@ -22,11 +22,19 @@ const messages = {
   variable_text: "{variable} variable should show up when ICE is not enabled!"
 }
 
-initializePhraseAppEditor(config);
+function Root() {
+  useEffect(() => {
+      initializePhraseAppEditor(config)
+  }, [])
+
+  return (
+    <App />
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <IntlProvider locale="en" messages={messages}>
-    <App/>
+    <Root />
   </IntlProvider>
 );
