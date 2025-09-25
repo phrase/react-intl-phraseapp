@@ -1,13 +1,15 @@
 {
   "name": "react-intl-phraseapp",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "The In-Context-Editor for react using react-intl",
   "homepage": "https://phrase.com",
   "scripts": {
     "test": "jest",
     "dev": "webpack-cli --mode development",
     "dist": "webpack-cli --mode production",
-    "prepublishOnly": "rm -rf dist/ && npm run dist"
+    "prepublishOnly": "rm -rf dist/ && npm run dist",
+    "release:dry-run": "semantic-release -d",
+    "release": "semantic-release"
   },
   "keywords": [
     "react",
@@ -17,9 +19,19 @@
     "localization",
     "phrase"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phrase/react-intl-phraseapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phrase/react-intl-phraseapp/issues",
+    "email": "support@phrase.com"
+  },
   "author": "Phrase",
   "license": "MIT",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
@@ -33,6 +45,7 @@
     "react-dom": "^19.1.1",
     "react-intl": "^7.1.11",
     "react-test-renderer": "^19.1.1",
+    "semantic-release": "24",
     "ts-jest": "^29.4.1",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
