@@ -10,10 +10,11 @@ module.exports = {
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       ["@semantic-release/npm", {
-          "pkgRoot": "dist/",
           "tarballDir": "release"
       }],
       "@semantic-release/github",
-      "@semantic-release/git"
+      ["@semantic-release/git", {
+        "assets": ["CHANGELOG.md", "package.json"]
+      }]
   ],
 };
