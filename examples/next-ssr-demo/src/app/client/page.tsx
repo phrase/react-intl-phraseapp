@@ -6,7 +6,7 @@ import { IntlProvider } from 'react-intl';
 import App from './App';
 import { useEffect } from 'react';
 
-export const page = () => {
+export default function Page() {
   const config = {
     projectId: '00000000000000004158e0858d2fa45c',
     accountId: '0bed59e5',
@@ -34,5 +34,3 @@ export const page = () => {
     </IntlProvider>
   );
 }
-
-export default page;
